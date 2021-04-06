@@ -1,0 +1,23 @@
+.flex-container {
+    flex-wrap: nowrap;
+}
+
+.card {
+    margin: 1rem;
+}
+
+.card-shadow:hover {
+    cursor: pointer;
+}
+
+.txt-grey {
+    color: var(--theme400);
+}
+
+
+
+/* .title-txt{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+} */

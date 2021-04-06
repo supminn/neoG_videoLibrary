@@ -1,3 +1,12 @@
+@import url("./Components/Navigation/navigation.css");
+@import url("./Components/Toast/toast.css");
+@import url("./Components/Video/videoCard.css");
+
+
+.route-container{
+  min-height: 3rem;
+ }
+ 
 .App {
   text-align: center;
 }

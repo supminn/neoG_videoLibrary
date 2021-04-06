@@ -5,11 +5,11 @@ faker.seed(4);
 export const database = [
   {
     id:"wp3JVexe7qY",
-    title:"ump Rope Tricks In SLOW MOTION (Tutorial)",
+    title:"Jump Rope Tricks In SLOW MOTION (Tutorial)",
     author:"Jump Rope Dudes",
     image: "https://yt3.ggpht.com/ytc/AAUvwngKnXdokDS7-D_weVfTXqTWcxw7tfuvoH6QNVQgRA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"2vgABryUY0c",
@@ -17,7 +17,7 @@ export const database = [
     author:"Jump Rope Dudes",
     image: "https://yt3.ggpht.com/ytc/AAUvwngKnXdokDS7-D_weVfTXqTWcxw7tfuvoH6QNVQgRA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"Up_gG4W7Gas",
@@ -25,7 +25,7 @@ export const database = [
     author:"Jump Rope Dudes",
     image: "https://yt3.ggpht.com/ytc/AAUvwngKnXdokDS7-D_weVfTXqTWcxw7tfuvoH6QNVQgRA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"l2yuJRZsV0c",
@@ -33,7 +33,7 @@ export const database = [
     author:"Jump Rope Dudes",
     image: "https://yt3.ggpht.com/ytc/AAUvwngKnXdokDS7-D_weVfTXqTWcxw7tfuvoH6QNVQgRA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"gINX0D4QWpM",
@@ -41,7 +41,7 @@ export const database = [
     author:"Jump Rope Dudes",
     image: "https://yt3.ggpht.com/ytc/AAUvwngKnXdokDS7-D_weVfTXqTWcxw7tfuvoH6QNVQgRA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"L8dcu3tw3xk",
@@ -49,7 +49,7 @@ export const database = [
     author:"Jump Rope Dudes",
     image: "https://yt3.ggpht.com/ytc/AAUvwngKnXdokDS7-D_weVfTXqTWcxw7tfuvoH6QNVQgRA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"RJVYXg3g8Xs",
@@ -57,7 +57,7 @@ export const database = [
     author:"Rush Athletics TV",
     image: "https://yt3.ggpht.com/ytc/AAUvwngAY2eyPPcTv0pMl76XB0AZFwS42wC6bnEtMw4FuA=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"7ZJl42lcd1I",
@@ -65,7 +65,7 @@ export const database = [
     author:"Jump Rope Mom",
     image: "https://yt3.ggpht.com/ytc/AAUvwni_Ps3dFoogE7mF8wK5ca0Tp-CJF4yguDKyWfrNtQ=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"s_nuLdHYmBY",
@@ -73,7 +73,7 @@ export const database = [
     author:"Crossrope Jump Ropes",
     image: "https://yt3.ggpht.com/ytc/AAUvwng-xmu5H4ulIV9RpnMBieZYs-cssinDR8lbbp81QQ=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"CEcOWZIis7Y",
@@ -81,7 +81,7 @@ export const database = [
     author:"Crossrope Jump Ropes",
     image: "https://yt3.ggpht.com/ytc/AAUvwng-xmu5H4ulIV9RpnMBieZYs-cssinDR8lbbp81QQ=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
   {
     id:"N-7xwJBTRpg",
@@ -89,6 +89,6 @@ export const database = [
     author:"Crossrope Jump Ropes",
     image: "https://yt3.ggpht.com/ytc/AAUvwng-xmu5H4ulIV9RpnMBieZYs-cssinDR8lbbp81QQ=s88-c-k-c0x00ffffff-no-rj",
     views: faker.datatype.number(),
-    uploaded: faker.date.past()
+    date: faker.date.past()
   },
 ];

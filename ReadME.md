@@ -9,6 +9,7 @@ This video library application would have the following features. It is being bu
     * Search for videos
     * Add to playlist
     * Add to liked videos 
+    * Filter based on category
 
 2. Playlist functionality
     * Add video to playlist
