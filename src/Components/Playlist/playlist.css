@@ -36,6 +36,7 @@
 }
 
 .playlist-edited{
+    outline: var(--theme100);
     color: var(--secondaryTxt);
     border: 2px solid var(--theme600);
     padding: 0.3rem;
