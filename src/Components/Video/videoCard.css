@@ -14,7 +14,9 @@
     color: var(--theme400);
 }
 
-
+.txt-grey .btn{
+    margin: unset;
+}
 
 /* .title-txt{
     text-overflow: ellipsis;

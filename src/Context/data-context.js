@@ -7,7 +7,12 @@ export const useDataContext = () => useContext(DataContext);
 const initialArg = {
     videoList:[],
     likedVideos:[],
-    watchLater:[], //playlist
+    playlist:[
+      {
+        name:"Watch Later",
+        videos: []
+      }
+    ],
     toastMsg: "",
     searchValue:""
   };

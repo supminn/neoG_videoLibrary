@@ -2,6 +2,8 @@ import faker from "faker";
 
 faker.seed(4);
 
+//add description for each video
+
 export const database = [
   {
     id:"wp3JVexe7qY",

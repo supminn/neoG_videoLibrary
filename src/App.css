@@ -1,6 +1,7 @@
 @import url("./Components/Navigation/navigation.css");
 @import url("./Components/Toast/toast.css");
 @import url("./Components/Video/videoCard.css");
+@import url("./Components/Playlist/playlist.css");
 
 
 .route-container{

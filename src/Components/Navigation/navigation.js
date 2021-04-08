@@ -1,11 +1,7 @@
-import { useDataContext } from "../../Context/data-context";
 import logo from "../../images/logo.png";
 import { NavLink } from "react-router-dom";
 
 export const Navigation = () => {
-  const {
-    state: { playlist: items, likedVideos: liked },
-  } = useDataContext();
 
   return (
     <nav className="nav flex-container">
@@ -23,9 +19,9 @@ export const Navigation = () => {
           <span className="badge-icon hidden-vis">0</span>
         </NavLink>
         <NavLink
-          to="/watch-later"
-          className="no-line fas fa-lg fa-clock secondary-txt"
-          activeClassName="no-line fas fa-lg fa-clock primaryBg-txt"
+          to="/playlist"
+          className="no-line fas fa-lg fa-list-alt secondary-txt"
+          activeClassName="no-line fas fa-lg fa-list-alt primaryBg-txt"
         >
           <span className="badge-icon hidden-vis">0</span>
         </NavLink>
