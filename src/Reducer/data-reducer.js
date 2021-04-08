@@ -75,9 +75,17 @@ export const dataReducer = (state, { type, payload }) => {
             : list
         ),
       };
+
+      /* Filter videos */
+      case "SEARCH_VIDEO":  return {...state, searchValue: payload.toLowerCase()};
+      case "CLEAR_FILTER":
+        return {
+          ...state, searchValue:""
+        }
     /* Toast message */
     case "SHOW_TOAST":
       return { ...state, toastMsg: payload };
+
     /* Default case */
     default:
       return state;

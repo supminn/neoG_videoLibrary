@@ -3,6 +3,20 @@
 @import url("./Components/Video/videoCard.css");
 @import url("./Components/Playlist/playlist.css");
 
+/* filter videos */
+.btn-clear{
+  background-color: transparent;
+  border: transparent;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--secondaryTxt);
+}
+
+.btn-clear:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
 .route-container{
   min-height: 3rem;
