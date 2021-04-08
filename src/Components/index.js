@@ -11,3 +11,4 @@ export { videoURL } from "./Video/videoUtil";
 export { LikedVideos } from "./LikedVideos/likedVideos";
 export { Playlist } from "./Playlist/playlist";
 export { AddToPlaylist } from "./Playlist/addToPlaylist";
+export { PlaylistCard } from "./Playlist/playlistCard";

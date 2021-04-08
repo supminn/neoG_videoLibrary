@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
-import { VideoCard } from "../Video/videoCard";
+import { PlaylistCard } from "./playlistCard";
 
 export const Playlist = () => {
   const {
@@ -15,8 +15,9 @@ export const Playlist = () => {
       {playlist.map(({ listId, name, videos }) => (
         <div key={listId} className="playlist-container">
           <PlaylistHeader listId={listId} name={name} />
+          {videos.length>0 && <small className="primaryBg-txt">({videos.length} videos)</small>}
           {videos.map((id) => (
-            <VideoCard key={id} id={id} />
+            <PlaylistCard key={id} id={id} listId={listId} />
           ))}
           {videos.length === 0 && (
             <>
@@ -60,8 +61,9 @@ const PlaylistHeader = ({ name, listId }) => {
         onChange={(e) => setListName(e.target.value)}
         onFocus={() => setEditable(true)}
         className={editable ? "playlist-edited" : "playlist-name"}
-      />:
-      <h3 className="playlist-name">{name}</h3>}
+      />:(<>
+      <h3 className="playlist-name">{name}</h3>
+      </>)}
       {listId !== 1 && (
         <>
           <i

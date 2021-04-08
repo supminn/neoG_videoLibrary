@@ -28,6 +28,7 @@
     border-radius: 1rem;
     max-width: 13rem;
     padding: 0.5rem;
+    outline: var(--theme100);
 }
 .playlist-name{
     border: none;
@@ -36,7 +37,6 @@
 }
 
 .playlist-edited{
-    outline: var(--theme100);
     color: var(--secondaryTxt);
     border: 2px solid var(--theme600);
     padding: 0.3rem;
