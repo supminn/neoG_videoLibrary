@@ -9,6 +9,14 @@ export const AddToPlaylist = ({ id }) => {
   } = useDataContext();
 
   const [showModal, setShowModal] = useState(false);
+  const [listName, setListName] = useState("");
+
+  const createPlaylistHandler = event => {
+      if(event.key === "Enter"){
+        dispatch({type:"ADD_TO_NEW_PLAYLIST",payload:{id, listName}})
+          setListName("");
+      }
+  }
 
   return (
     <>
@@ -24,30 +32,35 @@ export const AddToPlaylist = ({ id }) => {
           <div className="card modal-content">
             <h3 className="modal-header">Playlists</h3>
             <hr />
-            <section className="list-checbox">
-              {playlist.map(({ name, videos }) => (
-                <label key={name} className="secondary-txt">
+            <ul className="list-checkbox">
+              {playlist.map(({listId, name, videos }) => (
+                <li key={name} className="secondary-txt">
+                  <label>
                   <input
                     type="checkbox"
                     onChange={() =>
                       dispatch({
                         type: "TOGGLE_PLAYLIST",
-                        payload: { name, id },
+                        payload: { listId, id },
                       })
                     }
                     checked={videoExists(videos, id)}
                   />{" "}
                   {name}
-                </label>
+                  </label>
+                </li>
               ))}
-            </section>
+            </ul>
             <div className="txt-box">
               <input
+              onKeyDown={createPlaylistHandler}
+              onChange={(event)=> setListName(event.target.value)}
+              value={listName}
                 className="txt-input"
                 type="text"
-                placeholder="New playlist"
+                placeholder="Create new playlist"
               />
-              <span className="txt-icon">
+              <span className="txt-icon" onClick={() => {dispatch({type:"ADD_TO_NEW_PLAYLIST",payload:{id, listName}});setListName("")}}>
                 <i className="fas fa-lg fa-plus-circle"></i>
               </span>
             </div>

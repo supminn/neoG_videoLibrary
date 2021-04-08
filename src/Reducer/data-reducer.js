@@ -18,9 +18,11 @@ export const dataReducer = (state, { type, payload }) => {
           : state.likedVideos.concat(payload),
       };
 
-    /* Toggle existing playlist */
+    /* Toggle videos from existing playlist */
     case "TOGGLE_PLAYLIST":
-      const list = state.playlist.find((item) => item.name === payload.name);
+      const list = state.playlist.find(
+        (item) => item.listId === payload.listId
+      );
       const videoFlag = list.videos.some((videoId) => videoId === payload.id);
 
       return {
@@ -29,7 +31,7 @@ export const dataReducer = (state, { type, payload }) => {
           ? `Removed from ${list.name}`
           : `Added to ${list.name}`,
         playlist: state.playlist.map((listItem) =>
-          listItem.name === list.name
+          listItem.listId === list.listId
             ? {
                 ...listItem,
                 videos: videoFlag
@@ -40,6 +42,39 @@ export const dataReducer = (state, { type, payload }) => {
         ),
       };
 
+    /* Create new playlist and add video */
+    case "ADD_TO_NEW_PLAYLIST":
+      if (payload.listName) {
+        return {
+          ...state,
+          toastMsg: `Added to ${payload.listName}`,
+          playlist: state.playlist.concat({
+            listId: state.playlist.length + 1,
+            name: payload.listName,
+            videos: [payload.id],
+          }),
+        };
+      } else {
+        return { ...state };
+      }
+
+    /* Delete playlist */
+    case "DELETE_PLAYLIST":
+      return {
+        ...state,
+        playlist: state.playlist.filter((list) => list.listId !== payload),
+      };
+
+    /* Rename playlist */
+    case "RENAME_PLAYLIST":
+      return {
+        ...state,
+        playlist: state.playlist.map((list) =>
+          list.listId === payload.listId
+            ? { ...list, name: payload.listName }
+            : list
+        ),
+      };
     /* Toast message */
     case "SHOW_TOAST":
       return { ...state, toastMsg: payload };
