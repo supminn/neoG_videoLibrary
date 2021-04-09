@@ -16,7 +16,7 @@ export const VideoPage = () => {
     dispatch,
   } = useDataContext();
 
-  const { title, author, image, views, date, subscribers } = videoList.find(
+  const { title, author, image, views, date, subscribers, description } = videoList.find(
     (video) => video.id === videoId
   );
 
@@ -52,7 +52,7 @@ export const VideoPage = () => {
         </span>
       </div>
       <p className="video-description">
-          This is a video on jump rope. Currently this description is static. This could be a huge paragraph as well. There would be a lot more text here!
+          {description}
       </p>
     </>
   );
