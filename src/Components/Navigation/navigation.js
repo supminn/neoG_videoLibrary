@@ -11,6 +11,13 @@ export const Navigation = () => {
       </NavLink>
 
       <section className="sec-nav-btns">
+      <NavLink
+          to="/history"
+          className="no-line fas fa-lg fa-history secondary-txt"
+          activeClassName="no-line fas fa-lg fa-history primaryBg-txt"
+        >
+          <span className="badge-icon hidden-vis">0</span>
+        </NavLink>
         <NavLink
           to="/liked-videos"
           activeClassName="no-line fas fa-lg fa-thumbs-up primaryBg-txt"

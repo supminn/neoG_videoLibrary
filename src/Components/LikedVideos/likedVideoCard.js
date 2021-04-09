@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
 import { AddToPlaylist } from "../Playlist/addToPlaylist";
 import { imageURL } from "../Video/videoUtil";
@@ -14,6 +15,7 @@ export const LikedVideoCard = ({ id }) => {
 
   return (
     <div className="card card-shadow">
+      <Link className="no-line" to={`/${id}`}>
       <img
         className="card-img"
         alt="video-still"
@@ -24,7 +26,7 @@ export const LikedVideoCard = ({ id }) => {
         <b className="primaryBg-txt">{title}</b>
       </div>
       <small className="txt-small txt-grey">{author}</small>
-      <small className="txt-small txt-grey">{views} views</small>
+      </Link>
       <small className="txt-grey">
       <AddToPlaylist id={id}/>
       </small>

@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
-import { imageURL } from "../Video/videoUtil";
+import { formatNumber, imageURL } from "../Video/videoUtil";
 
 export const PlaylistCard = ({ id,listId }) => {
   const {
@@ -12,6 +13,7 @@ export const PlaylistCard = ({ id,listId }) => {
 
   return (
     <div className="card card-shadow">
+        <Link className="no-line" to={`/${id}`}>
       <img
         className="card-img"
         alt="video-still"
@@ -23,7 +25,8 @@ export const PlaylistCard = ({ id,listId }) => {
       </div>
       <small className="txt-small txt-grey">{author} {" "}
       <i className="fas fa-circle fa-xs"></i>{" "}
-       {views} views</small>
+       {formatNumber(views)} views</small>
+       </Link>
        <button type="button" onClick={() => dispatch({
                         type: "TOGGLE_PLAYLIST",
                         payload: { listId, id },

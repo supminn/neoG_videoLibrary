@@ -2,6 +2,7 @@
 @import url("./Components/Toast/toast.css");
 @import url("./Components/Video/videoCard.css");
 @import url("./Components/Playlist/playlist.css");
+@import url("./Components/VideoPlayer/videoPage.css");
 
 /* filter videos */
 .btn-clear{
