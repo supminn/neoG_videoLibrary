@@ -41,4 +41,9 @@ This video library application would have the following features. It is being bu
 2. Faker
 3. Axios
 
+### Future Enhancements
+* Authentication - login to add to liked videos and playlists
+* Filter/search by category of videos
+* Take personal notes from video - capture video time duration
+
 

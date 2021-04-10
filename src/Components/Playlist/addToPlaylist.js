@@ -11,56 +11,78 @@ export const AddToPlaylist = ({ id }) => {
   const [showModal, setShowModal] = useState(false);
   const [listName, setListName] = useState("");
 
-  const createPlaylistHandler = event => {
-      if(event.key === "Enter"){
-        dispatch({type:"ADD_TO_NEW_PLAYLIST",payload:{id, listName}})
-          setListName("");
-      }
-  }
+  const createPlaylistHandler = (event) => {
+    if (event.key === "Enter") {
+      dispatch({ type: "ADD_TO_NEW_PLAYLIST", payload: { id, listName } });
+      setListName("");
+    }
+  };
+
+  const checkInPlaylist = (id) =>
+    playlist.some((item) => item.videos.some((videoId) => videoId === id));
 
   return (
     <>
-      <i
-        onClick={() => setShowModal((showModal) => !showModal)}
-        className="btn fas fa-lg fa-plus"
-      >
-        {" "}
-        Save{" "}
-      </i>
+      {checkInPlaylist(id) ? (
+        <i
+          onClick={() => setShowModal((showModal) => !showModal)}
+          className="btn fas fa-lg fa-check primaryBg-txt"
+        >
+          {" "}
+          Saved{" "}
+        </i>
+      ) : (
+        <i
+          onClick={() => setShowModal((showModal) => !showModal)}
+          className="btn fas fa-lg fa-plus"
+        >
+          {" "}
+          Save{" "}
+        </i>
+      )}
       {showModal && (
         <div className="modal-container">
           <div className="card modal-content">
             <h3 className="modal-header">Playlists</h3>
             <hr />
             <ul className="list-checkbox">
-              {playlist.map(({listId, name, videos }) => (
+              {playlist.map(({ listId, name, videos }) => (
                 <li key={name} className="secondary-txt">
                   <label>
-                  <input
-                    type="checkbox"
-                    onChange={() =>
-                      dispatch({
-                        type: "TOGGLE_PLAYLIST",
-                        payload: { listId, id },
-                      })
-                    }
-                    checked={videoExists(videos, id)}
-                  />{" "}
-                  {name}
+                    <input
+                      type="checkbox"
+                      onChange={() =>
+                        dispatch({
+                          type: "TOGGLE_PLAYLIST",
+                          payload: { listId, id },
+                        })
+                      }
+                      checked={videoExists(videos, id)}
+                    />{" "}
+                    {name}
                   </label>
                 </li>
               ))}
             </ul>
             <div className="txt-box">
               <input
-              onKeyDown={createPlaylistHandler}
-              onChange={(event)=> setListName(event.target.value)}
-              value={listName}
+                onKeyDown={createPlaylistHandler}
+                onChange={(event) => setListName(event.target.value)}
+                value={listName}
                 className="txt-input"
                 type="text"
                 placeholder="Create new playlist"
               />
-              <span className="txt-icon" onClick={() => {dispatch({type:"ADD_TO_NEW_PLAYLIST",payload:{id, listName}});setListName("")}}>
+              <span
+                className="txt-icon"
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_NEW_PLAYLIST",
+                    payload: { id, listName },
+                  });
+                  setListName("");
+                }}
+              >
                 <i className="fas fa-lg fa-plus-circle"></i>
               </span>
             </div>
