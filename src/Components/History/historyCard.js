@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
 import { AddToPlaylist } from "../Playlist/addToPlaylist";
-import { imageURL, videoExists } from "./videoUtil";
+import { imageURL, videoExists } from "../Video/videoUtil";
 
-export const VideoCard = ({ id }) => {
+export const HistoryCard = ({ id }) => {
   const {
     state: { videoList, likedVideos },
     dispatch,
@@ -38,22 +38,14 @@ export const VideoCard = ({ id }) => {
         ></i>
       <AddToPlaylist id={id}/>
       </small>
+      <button type="button" onClick={() => dispatch({
+                        type: "REMOVE_FROM_HISTORY",
+                        payload: id 
+                      })}
+            className="btn btn-secondary btn-dismiss"><i className="fas fa-times"></i></button>
+  
     </div>
 
   );
 };
 
-/*
-<i
-          onClick={() => dispatch({ type: "TOGGLE_WATCHLATER", payload: id })}
-          className={
-            videoExists(watchLater, id)
-              ? "fas fa-lg fa-clock primaryBg-txt"
-              : "fas fa-lg fa-clock"
-          }
-        ></i> 
-
- <video controls>
-        <source src={`https://www.youtube.com/watch?v=${id}`}></source>
-      </video>
-*/

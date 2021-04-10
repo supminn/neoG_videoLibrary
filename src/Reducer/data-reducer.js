@@ -76,12 +76,37 @@ export const dataReducer = (state, { type, payload }) => {
         ),
       };
 
-      /* Filter videos */
-      case "SEARCH_VIDEO":  return {...state, searchValue: payload.toLowerCase()};
-      case "CLEAR_FILTER":
-        return {
-          ...state, searchValue:""
+    /* User's Video History */
+    case "ADD_TO_HISTORY":
+      return {
+        ...state,
+        history: state.history.some((videoId) => videoId === payload)
+          ? state.history
+              .filter((videoId) => videoId !== payload)
+              .concat(payload)
+          : state.history.concat(payload),
+      };
+      case "REMOVE_FROM_HISTORY":
+        return{
+          ...state,
+          toastMsg:"Removed from history",
+          history: state.history.filter(videoId => videoId !== payload)
         }
+      case "CLEAR_HISTORY":
+        return {
+          ...state,
+          toastMsg:"Cleared watch history",
+          history: []
+        }
+    /* Filter videos */
+    case "SEARCH_VIDEO":
+      return { ...state, searchValue: payload.toLowerCase() };
+    case "CLEAR_FILTER":
+      return {
+        ...state,
+        searchValue: "",
+      };
+
     /* Toast message */
     case "SHOW_TOAST":
       return { ...state, toastMsg: payload };

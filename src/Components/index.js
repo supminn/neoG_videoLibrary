@@ -15,3 +15,4 @@ export { AddToPlaylist } from "./Playlist/addToPlaylist";
 export { PlaylistCard } from "./Playlist/playlistCard";
 
 export { History } from "./History/history";
+export { HistoryCard } from "./History/historyCard";

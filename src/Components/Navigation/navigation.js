@@ -7,7 +7,7 @@ export const Navigation = () => {
     <nav className="nav flex-container">
       <NavLink to="/" className="no-line nav-logo-container">
         <img className="img-rd img-logo" src={logo} alt="logo" />
-        <span className="nav-header"> JumpSUP</span>
+        <span className="nav-header"> SUPVision</span>
       </NavLink>
 
       <section className="sec-nav-btns">

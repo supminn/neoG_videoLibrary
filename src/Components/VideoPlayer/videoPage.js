@@ -25,7 +25,7 @@ export const VideoPage = () => {
       <ReactPlayer
         className="video-container"
         url={videoURL(videoId)}
-        /*playing={true}*/ controls
+        playing={true} controls
         volume={1}
       />
       <h3 className="primaryBg-txt">{title}</h3>
