@@ -29,7 +29,7 @@ function App() {
         dispatch({ type: "SET_VIDEOLIST", payload: videos });
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">

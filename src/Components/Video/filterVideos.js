@@ -1,21 +1,22 @@
-import { useState } from "react"
-import {useDataContext} from "../../Context/data-context";
+import { useState } from "react";
+import { useDataContext } from "../../Context/data-context";
 
 export const FilterVideos = () => {
-    const [searchTxt, setSearchTxt] = useState("");
-    const {dispatch} = useDataContext();
+  const [searchTxt, setSearchTxt] = useState("");
+  const { dispatch } = useDataContext();
 
-    const searchHandler = (e) => {
-        if (e.keyCode === 13) {
-          dispatch({ type: "SEARCH_VIDEO", payload: searchTxt });
-          setSearchTxt("");
-        }
-      };
+  const searchHandler = (e) => {
+    if (e.keyCode === 13) {
+      dispatch({ type: "SEARCH_VIDEO", payload: searchTxt });
+      setSearchTxt("");
+    }
+  };
 
-      return(
-          <div className="filter-container">
-              <div className="txt-box">
-      {" "}<input
+  return (
+    <div className="filter-container flex-container">
+      <div className="txt-box">
+        {" "}
+        <input
           className="txt-input"
           type="text"
           value={searchTxt}
@@ -34,16 +35,20 @@ export const FilterVideos = () => {
         </span>
       </div>
       <button
-          type="button"
-          className="btn-clear"
-          onClick={() => dispatch({ type: "CLEAR_FILTER" })}
-        >
-          Clear Search
-        </button>
-          </div>
-      )
-}
+        type="button"
+        className="btn-clear"
+        onClick={() => dispatch({ type: "CLEAR_FILTER" })}
+      >
+        Clear Search
+      </button>
+    </div>
+  );
+};
 
-export const getFilteredVideos = (videoList,searchValue) => {
-    return videoList.filter(video => video.title.toLowerCase().includes(searchValue) || video.author.toLowerCase().includes(searchValue));
-}
+export const getFilteredVideos = (videoList, searchValue) => {
+  return videoList.filter(
+    (video) =>
+      video.title.toLowerCase().includes(searchValue) ||
+      video.author.toLowerCase().includes(searchValue)
+  );
+};

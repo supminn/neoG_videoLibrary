@@ -9,7 +9,7 @@ export const LikedVideoCard = ({ id }) => {
     dispatch,
   } = useDataContext();
 
-  const { title, author, image, views } = videoList.find(
+  const { title, author, image } = videoList.find(
     (video) => video.id === id
   );
 

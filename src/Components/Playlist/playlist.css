@@ -23,22 +23,28 @@
     min-height: 8rem;
 }
 
-.playlist-name, .playlist-edited{
+.playlist-name,
+.playlist-edited {
     font-size: 1.2rem;
     border-radius: 1rem;
     max-width: 13rem;
     padding: 0.5rem;
     outline: var(--theme100);
 }
-.playlist-name{
+
+.playlist-name {
     border: none;
     font-weight: bold;
     color: var(--primaryBg);
 }
 
-.playlist-edited{
+.playlist-edited {
     color: var(--secondaryTxt);
     border: 2px solid var(--theme600);
     padding: 0.3rem;
     margin: 0.2rem;
+}
+
+.watch-later{
+    margin: auto;
 }

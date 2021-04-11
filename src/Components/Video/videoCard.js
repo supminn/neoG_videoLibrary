@@ -23,7 +23,9 @@ export const VideoCard = ({ id }) => {
       />
       <div className="flex-container">
         <img className="avatar-sm" alt="author" src={image} />
+        <div>
         <b className="primaryBg-txt">{title}</b>
+        </div>
       </div>
       <small className="txt-small txt-grey">{author}</small>
       </Link>

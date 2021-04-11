@@ -62,7 +62,7 @@ const PlaylistHeader = ({ name, listId }) => {
         onFocus={() => setEditable(true)}
         className={editable ? "playlist-edited" : "playlist-name"}
       />:(<>
-      <h3 className="playlist-name">{name}</h3>
+      <h3 className="playlist-name watch-later">{name}</h3>
       </>)}
       {listId !== 1 && (
         <>
