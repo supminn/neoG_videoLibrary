@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDataContext } from "../../Context/data-context";
 import { videoExists } from "../Video/videoUtil";
 
@@ -10,6 +10,15 @@ export const AddToPlaylist = ({ id }) => {
 
   const [showModal, setShowModal] = useState(false);
   const [listName, setListName] = useState("");
+
+  useEffect(() => {
+    const modal = document.querySelector(".modal-container");
+    window.onclick = event => {
+      if (event.target === modal) {
+          setShowModal(false);
+      }
+  }
+  },[showModal]);
 
   const createPlaylistHandler = (event) => {
     if (event.key === "Enter") {

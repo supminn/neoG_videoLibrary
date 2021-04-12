@@ -4,7 +4,7 @@
 }
 
 @media screen and (min-width: 576px) {
-    .txt-input{
+    .filter-container .txt-input{
         width: 25rem;
     }
 }
@@ -14,7 +14,7 @@
     .filter-container{
         width: 50%;
     }
-    .txt-input{
+    .filter-container .txt-input{
         width: 30rem;
     }
 }

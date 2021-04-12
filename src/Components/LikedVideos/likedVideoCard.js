@@ -15,7 +15,7 @@ export const LikedVideoCard = ({ id }) => {
 
   return (
     <div className="card card-shadow">
-      <Link className="no-line" to={`/${id}`}>
+      <Link className="no-line" to={`/${id}`} onClick={() => dispatch({type:"ADD_TO_HISTORY",payload:id})}>
       <img
         className="card-img"
         alt="video-still"
@@ -23,7 +23,7 @@ export const LikedVideoCard = ({ id }) => {
       />
       <div className="flex-container">
         <img className="avatar-sm" alt="author" src={image} />
-        <b className="primaryBg-txt">{title}</b>
+        <b className="primaryBg-txt txt-title">{title}</b>
       </div>
       <small className="txt-small txt-grey">{author}</small>
       </Link>

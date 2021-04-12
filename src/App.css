@@ -5,6 +5,7 @@
 @import url("./Components/VideoPlayer/videoPage.css");
 @import url("./Components/Video/filters.css");
 @import url("./Components/Video/videoList.css");
+@import url("./Components/History/history.css");
 
 /* filter videos */
 .btn-clear{

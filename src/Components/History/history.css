@@ -1,0 +1,25 @@
+.card-container{
+    margin: 1rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 576px) {
+    .card-container{
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 818px) {
+    .card-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1082px) {
+    .card-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

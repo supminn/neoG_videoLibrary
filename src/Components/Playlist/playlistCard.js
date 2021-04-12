@@ -12,16 +12,16 @@ export const PlaylistCard = ({ id,listId }) => {
   );
 
   return (
-    <div className="card card-shadow">
-        <Link className="no-line" to={`/${id}`}>
+    <div className="card card-shadow playlist-card">
+        <Link className="no-line" to={`/${id}`} onClick={() => dispatch({type:"ADD_TO_HISTORY",payload:id})}>
       <img
-        className="card-img"
+        className="card-img playlist-card-img"
         alt="video-still"
         src={imageURL(id)}
       />
       <div className="flex-container">
         <img className="avatar-sm" alt="author" src={image} />
-        <b className="primaryBg-txt">{title}</b>
+        <b className="primaryBg-txt txt-title">{title}</b>
       </div>
       <small className="txt-small txt-grey">{author} {" "}
       <i className="fas fa-circle fa-xs"></i>{" "}

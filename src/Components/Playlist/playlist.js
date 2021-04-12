@@ -22,9 +22,11 @@ export const Playlist = () => {
         <div key={listId} className="playlist-container">
           <PlaylistHeader listId={listId} name={name} />
           {videos.length>0 && <small className="primaryBg-txt">({videos.length} videos)</small>}
-          {videos.map((id) => (
+         <div className="playlist-container">
+         {videos.map((id) => (
             <PlaylistCard key={id} id={id} listId={listId} />
           ))}
+         </div>
           {videos.length === 0 && (
             <>
               <b className="txt-header-3">Empty Playlist! 🤨</b>
@@ -35,6 +37,7 @@ export const Playlist = () => {
           )}
         </div>
       ))}
+      <a href="#" className="btn btn-secondary btn-fab"> <i className="fas fa-angle-double-up fa-lg"></i></a>
     </>
   );
 };
@@ -71,7 +74,7 @@ const PlaylistHeader = ({ name, listId }) => {
       <h3 className="playlist-name watch-later">{name}</h3>
       </>)}
       {listId !== 1 && (
-        <>
+        <section className="playlist-edit-icons">
           <i
             onClick={() => (editable ? updateName() : setEditable(true))}
             className={`primaryBg-txt fas fa-lg ${
@@ -88,7 +91,7 @@ const PlaylistHeader = ({ name, listId }) => {
           >
             <span className="badge-icon hidden-vis"></span>
           </i>
-        </>
+        </section>
       )}
     </div>
   );

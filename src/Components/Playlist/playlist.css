@@ -17,10 +17,10 @@
 }
 
 .playlist-container {
-    border: 1px solid var(--primaryBg);
+    background-color: var(--theme50);
     margin: 1rem;
-    border-radius: 0.25rem;
-    min-height: 8rem;
+    border-radius: 0.5rem;
+    padding-bottom: 0.1rem;
 }
 
 .playlist-name,
@@ -36,6 +36,7 @@
     border: none;
     font-weight: bold;
     color: var(--primaryBg);
+    background-color: var(--theme50);
 }
 
 .playlist-edited {
@@ -45,6 +46,41 @@
     margin: 0.2rem;
 }
 
-.watch-later{
+.watch-later {
     margin: auto;
+}
+
+.playlist-card .txt-title {
+    padding-left:1rem;
+}
+
+.modal-container .card{
+    height: 20rem;
+}
+
+.playlist-icon-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 1rem;
+}
+
+.playlist-edit-icons{
+    padding: 0.5rem;
+    padding-top: 0.8rem;
+}
+
+.playlist-card {
+    margin: 1.5rem auto;
+}
+
+@media screen and (min-width: 576px) {
+    .playlist-card-img {
+        display: none;
+    }
+
+    .playlist-card {
+        height: 10rem;
+        width: 25rem;
+        max-width: unset;
+    }
 }
