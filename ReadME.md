@@ -45,5 +45,7 @@ This video library application would have the following features. It is being bu
 * Authentication - login to add to liked videos and playlists
 * Filter/search by category of videos
 * Take personal notes from video - capture video time duration
+* Home page and video listing page design
+* Clicking on dp or author would filter the page with those details.
 
 

@@ -6,7 +6,6 @@
 
 .author-container{
     display: flex;
-    display: flex;
     align-items: center;
     width: 100%;
     color: var(--primaryBg);
@@ -31,4 +30,28 @@
     margin: 0.5rem auto;
     font-size: 0.8em;
     line-height: 1.45;
+}
+
+@media screen and (min-width: 576px) {
+    .author-container{
+        max-height: 5rem;
+    }
+    .author-dp{
+        width: 10%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .author-container{
+        max-height: 8rem;
+        width: 50%;
+        margin: auto;
+    }
+    .video-description{
+        width: 50%;
+    }
+    .video-container{
+        max-width: unset;
+        max-height:  unset;
+    }
 }

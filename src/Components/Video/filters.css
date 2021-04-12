@@ -3,6 +3,19 @@
     margin: auto;
 }
 
+.btn-clear{
+    background-color: transparent;
+    border: transparent;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--secondaryTxt);
+  }
+  
+  .btn-clear:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
 @media screen and (min-width: 576px) {
     .filter-container .txt-input{
         width: 25rem;

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDataContext } from "../../Context/data-context";
 import { FilterVideos, getFilteredVideos } from "./filterVideos";
 import { VideoCard } from "./videoCard";
+import videolist from "../../images/videolist.svg";
 
 export const VideoList = () => {
   const {
@@ -24,6 +25,12 @@ export const VideoList = () => {
             <VideoCard key={video.id} id={video.id} />
         ))}
       </div>
+      {filteredVideos.length===0 && (
+        <>
+        <h3 className="txt-header-3">No videos found!</h3>
+        <img className="img-res img-svg" src={videolist} alt="videolist"/>
+        </>
+      )}
       <a href="#" className="btn btn-secondary btn-fab"> <i className="fas fa-angle-double-up fa-lg"></i></a>
     </>
   );

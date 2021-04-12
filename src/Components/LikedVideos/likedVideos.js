@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context"
 import { LikedVideoCard } from "./likedVideoCard";
+import like from "../../images/like.svg";
 
 export const LikedVideos = () => {
     const {state:{likedVideos}} = useDataContext();
@@ -26,6 +27,8 @@ export const LikedVideos = () => {
          <Link to="/" className="no-line">
              <button className="btn btn-primary">Checkout Videos</button>
              </Link>
+             <br/>
+             <img className="img-res img-svg" src={like} alt="like"/>
          </>
          )}
         </>

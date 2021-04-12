@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDataContext } from "../../Context/data-context";
 import { HistoryCard } from "./historyCard";
+import historyPic from "../../images/history.svg";
 
 export const History = () => {
   const {
@@ -34,7 +35,10 @@ export const History = () => {
           ))}
       </div>
       {history.length === 0 && (
+        <>
         <h3 className="txt-header-3">No watch history found!</h3>
+        <img className="img-res img-svg" src={historyPic} alt="history"/>
+        </>
       )}
     </>
   );
