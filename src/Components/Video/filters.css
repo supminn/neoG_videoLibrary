@@ -2,3 +2,19 @@
     width: 98%;
     margin: auto;
 }
+
+@media screen and (min-width: 576px) {
+    .txt-input{
+        width: 25rem;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .filter-container{
+        width: 50%;
+    }
+    .txt-input{
+        width: 30rem;
+    }
+}

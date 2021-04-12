@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
 import { PlaylistCard } from "./playlistCard";
@@ -7,6 +7,12 @@ export const Playlist = () => {
   const {
     state: { playlist },
   } = useDataContext();
+
+  useEffect(() => {
+    document.title = "SUPVision | Playlist";
+},[]);
+
+
   return (
     <>
       <h2 className="txt-header-2">

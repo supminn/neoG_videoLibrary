@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router";
 import { useDataContext } from "../../Context/data-context";
@@ -19,6 +20,11 @@ export const VideoPage = () => {
   const { title, author, image, views, date, subscribers, description } = videoList.find(
     (video) => video.id === videoId
   );
+
+  useEffect(() => {
+    document.title = title;
+},[]);
+
 
   return (
     <>

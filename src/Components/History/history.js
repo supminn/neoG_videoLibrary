@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { useDataContext } from "../../Context/data-context"
 import { HistoryCard } from "./historyCard";
 
 export const History = () => {
     const {state:{history},dispatch} = useDataContext();
 
+    useEffect(() => {
+        document.title = "SUPVision | History";
+    },[]);
+    
     return(
         <>
         <h2 className="txt-header-2">Watch <span className="secondary-txt">History</span></h2>

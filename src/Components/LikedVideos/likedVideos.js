@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context"
 import { LikedVideoCard } from "./likedVideoCard";
 
 export const LikedVideos = () => {
     const {state:{likedVideos}} = useDataContext();
+
+    useEffect(() => {
+        document.title = "SUPVision | Liked";
+    },[]);
+    
 
     return(
         <>
