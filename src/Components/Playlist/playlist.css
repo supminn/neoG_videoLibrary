@@ -20,7 +20,7 @@
 
 .playlist-container {
     background-color: var(--theme50);
-    margin: 1rem;
+    margin: 2rem 1rem;
     border-radius: 0.5rem;
     padding-bottom: 0.1rem;
 }
@@ -29,16 +29,19 @@
 .playlist-edited {
     font-size: 1.2rem;
     border-radius: 1rem;
-    max-width: 13rem;
+    /* max-width: 10rem; */
+    width: max-content;
     padding: 0.5rem;
     outline: var(--theme100);
+    text-align: center;
 }
 
 .playlist-name {
     border: none;
     font-weight: bold;
-    color: var(--primaryBg);
     background-color: var(--theme50);
+    color: transparent;
+    text-shadow: 0 0 0 var(--primaryBg);
 }
 
 .playlist-edited {
@@ -62,7 +65,7 @@
 
 .playlist-icon-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0.2rem 1rem;
 }
 
@@ -79,13 +82,28 @@
     .playlist-card-img {
         display: none;
     }
-
+    
     .playlist-card {
         height: 10rem;
         width: 25rem;
         max-width: unset;
     }
 }
+
+@media screen and (min-width: 880px) {
+    .playlist-card-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .playlist-card-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 
 /* Track */
 .list-checkbox::-webkit-scrollbar-track {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
 import { PlaylistCard } from "./playlistCard";
@@ -22,7 +22,7 @@ export const Playlist = () => {
         <div key={listId} className="playlist-container">
           <PlaylistHeader listId={listId} name={name} />
           {videos.length>0 && <small className="primaryBg-txt">({videos.length} videos)</small>}
-         <div className="playlist-container">
+         <div className="playlist-card-container">
          {videos.map((id) => (
             <PlaylistCard key={id} id={id} listId={listId} />
           ))}
@@ -53,6 +53,11 @@ const PlaylistHeader = ({ name, listId }) => {
     setEditable(false);
   };
 
+  const checkKeyDown = e =>{
+    if(e.key === "Enter"){
+      updateName();
+    }
+  }
   const deleteList = () => {
     dispatch({ type: "DELETE_PLAYLIST", payload: listId });
   };
@@ -62,11 +67,21 @@ const PlaylistHeader = ({ name, listId }) => {
     setEditable(false);
   };
 
+  const inputRef = useRef(null);
+
+  const editName = () => {
+    setEditable(true);
+    inputRef.current.focus();
+  }
+
+
   return (
     <div className="playlist-icon-container">
       {listId !== 1?<input
         type="text"
+        ref={inputRef}
         value={listName}
+        onKeyDown={checkKeyDown}
         onChange={(e) => setListName(e.target.value)}
         onFocus={() => setEditable(true)}
         className={editable ? "playlist-edited" : "playlist-name"}
@@ -76,7 +91,7 @@ const PlaylistHeader = ({ name, listId }) => {
       {listId !== 1 && (
         <section className="playlist-edit-icons">
           <i
-            onClick={() => (editable ? updateName() : setEditable(true))}
+            onClick={() => (editable ? updateName() : editName())}
             className={`primaryBg-txt fas fa-lg ${
               editable ? "fa-check-circle" : "fa-edit"
             }`}
