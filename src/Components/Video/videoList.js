@@ -11,7 +11,7 @@ export const VideoList = () => {
   const filteredVideos = getFilteredVideos(videoList, searchValue);
 
   useEffect(() => {
-    document.title = "SUPVision | Videos";
+    document.title = "SupVision | Videos";
   }, []);
 
   return (

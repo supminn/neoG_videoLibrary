@@ -10,7 +10,7 @@ export const History = () => {
   } = useDataContext();
 
   useEffect(() => {
-    document.title = "SUPVision | History";
+    document.title = "SupVision | History";
   }, []);
 
   return (

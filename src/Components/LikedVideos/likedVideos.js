@@ -8,7 +8,7 @@ export const LikedVideos = () => {
     const {state:{likedVideos}} = useDataContext();
 
     useEffect(() => {
-        document.title = "SUPVision | Liked";
+        document.title = "SupVision | Liked";
     },[]);
     
 

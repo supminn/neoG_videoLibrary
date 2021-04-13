@@ -9,7 +9,7 @@ export const Playlist = () => {
   } = useDataContext();
 
   useEffect(() => {
-    document.title = "SUPVision | Playlist";
+    document.title = "SupVision | Playlist";
 },[]);
 
 
