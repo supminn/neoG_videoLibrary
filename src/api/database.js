@@ -166,6 +166,16 @@ export const database = [
     description:"Discover the fun new jump rope fitness experience everyone is talking about. \n We believe in the power of jump rope fitness and its ability to help busy people get fit and feel their best. \n People on the move, craving something fun and different, and breaking free from the confines of a gym. People like you. \n At Crossrope, we craft high-quality jump ropes that are built to perform and built to last. \n Our Infinity ropes come with a custom training app loaded with tutorials, workouts, and fitness challenges to help you stay fit even when you're on the move. Crossrope helps you get a fun and engaging workout wherever you go."
   },
   {
+    id:"X9PB5I7SKKk",
+    title: "How To Do The Southpaw Double Under",
+    author:"Coach Nate K-G",
+    subscribers: faker.datatype.number(),
+    image: "https://yt3.ggpht.com/ytc/AAUvwni5VgaX9ZV_LjfwEG6rnRHBsMKt-2NGJAePe30vEg=s88-c-k-c0x00ffffff-no-rj",
+    views: faker.datatype.number(),
+    date: faker.date.past(),
+    description:"Hi, I am your jump rope coach Nate! Through jumping over a decade, I’ve realized that there are so many different styles and applications of the jump rope! Whether you want to mimic the style of Floyd Mayweather, focus solely on double unders during your workout, or explore the massive universe of freestyle skills, you will find something that works for you! And my mission is to give you as many resources as possible!"
+  },
+  {
     id:"N-7xwJBTRpg",
     title:"Jump Rope Exercise Tutorial - Heel Toe Step [Crossrope]",
     author:"Crossrope Jump Ropes",
@@ -184,5 +194,15 @@ export const database = [
     views: faker.datatype.number(),
     date: faker.date.past(),
     description:"Welcome to the Home Of Jump Rope Fitness & Lifestyle! Making cardio epic since 2015.\n Check our line of premium jump ropes and let’s fly! \n I'm Rushie S, Jump Rope Coach & CEO of Rush Athletics. I've been teaching people how to fly boss since 2015 & fortunate to have left an accounting career to pursue my Youtube & brand venture full time. \n The benefits of jump rope training far exceeds what is commonly thought and I want to share it with you! Our community is growing worldwide. We'd love you to subscribe & join the cardio revolution we're creating. #TheyRunWeFly"
+  },
+  {
+    id:"pqgXbeIsfqU",
+    title: "JUMP ROPE TUTORIAL - DOUBLE UNDER CROSS (with slow motion) ",
+    author:"Coach Nate K-G",
+    subscribers: faker.datatype.number(),
+    image: "https://yt3.ggpht.com/ytc/AAUvwni5VgaX9ZV_LjfwEG6rnRHBsMKt-2NGJAePe30vEg=s88-c-k-c0x00ffffff-no-rj",
+    views: faker.datatype.number(),
+    date: faker.date.past(),
+    description:"Hi, I am your jump rope coach Nate! Through jumping over a decade, I’ve realized that there are so many different styles and applications of the jump rope! Whether you want to mimic the style of Floyd Mayweather, focus solely on double unders during your workout, or explore the massive universe of freestyle skills, you will find something that works for you! And my mission is to give you as many resources as possible!"
   },
 ];
