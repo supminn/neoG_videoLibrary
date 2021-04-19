@@ -18,7 +18,7 @@ export const LikedVideos = () => {
         {likedVideos.length>0 && <small className="primaryBg-txt">({likedVideos.length} videos)</small>}
      <div className="card-container">
      {likedVideos.map(videoId => (
-                <LikedVideoCard key={videoId} id={videoId} />
+                <LikedVideoCard key={videoId} vid={videoId} />
         ))}
      </div>
          {likedVideos.length===0 && (

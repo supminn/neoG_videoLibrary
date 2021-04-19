@@ -23,8 +23,8 @@ export const Playlist = () => {
           <PlaylistHeader listId={listId} name={name} />
           {videos.length>0 && <small className="primaryBg-txt">({videos.length} videos)</small>}
          <div className="playlist-card-container">
-         {videos.map((id) => (
-            <PlaylistCard key={id} id={id} listId={listId} />
+         {videos.map((vid) => (
+            <PlaylistCard key={vid} vid={vid} listId={listId} />
           ))}
          </div>
           {videos.length === 0 && (

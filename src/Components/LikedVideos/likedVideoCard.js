@@ -3,23 +3,23 @@ import { useDataContext } from "../../Context/data-context";
 import { AddToPlaylist } from "../Playlist/addToPlaylist";
 import { imageURL } from "../Video/videoUtil";
 
-export const LikedVideoCard = ({ id }) => {
+export const LikedVideoCard = ({ vid }) => {
   const {
     state: { videoList },
     dispatch,
   } = useDataContext();
 
   const { title, author, image } = videoList.find(
-    (video) => video.id === id
+    (video) => video.vid === vid
   );
 
   return (
     <div className="card card-shadow">
-      <Link className="no-line" to={`/${id}`} onClick={() => dispatch({type:"ADD_TO_HISTORY",payload:id})}>
+      <Link className="no-line" to={`/${vid}`} onClick={() => dispatch({type:"ADD_TO_HISTORY",payload:vid})}>
       <img
         className="card-img"
         alt="video-still"
-        src={imageURL(id)}
+        src={imageURL(vid)}
       />
       <div className="flex-container">
         <img className="avatar-sm" alt="author" src={image} />
@@ -28,11 +28,11 @@ export const LikedVideoCard = ({ id }) => {
       <small className="txt-small txt-grey">{author}</small>
       </Link>
       <small className="txt-grey">
-      <AddToPlaylist id={id}/>
+      <AddToPlaylist vid={vid}/>
       </small>
       <button type="button" onClick={() => dispatch({
                         type: "TOGGLE_LIKE",
-                        payload: id 
+                        payload: vid 
                       })}
             className="btn btn-secondary btn-dismiss"><i className="fas fa-times"></i></button>
   

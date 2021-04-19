@@ -22,7 +22,7 @@ export const VideoList = () => {
       <FilterVideos />
       <div className="videolist-container">
         {filteredVideos.map((video) => (
-            <VideoCard key={video.id} id={video.id} />
+            <VideoCard key={video.vid} vid={video.vid} />
         ))}
       </div>
       {filteredVideos.length===0 && (
