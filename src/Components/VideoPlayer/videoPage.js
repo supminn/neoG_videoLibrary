@@ -23,7 +23,7 @@ export const VideoPage = () => {
 
   useEffect(() => {
     document.title = title;
-},[]);
+},[title]);
 
 
   return (

@@ -45,17 +45,3 @@ export const VideoCard = ({ vid }) => {
   );
 };
 
-/*
-<i
-          onClick={() => dispatch({ type: "TOGGLE_WATCHLATER", payload: vid })}
-          className={
-            videoExists(watchLater, vid)
-              ? "fas fa-lg fa-clock primaryBg-txt"
-              : "fas fa-lg fa-clock"
-          }
-        ></i> 
-
- <video controls>
-        <source src={`https://www.youtube.com/watch?v=${vid}`}></source>
-      </video>
-*/

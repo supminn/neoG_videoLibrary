@@ -20,7 +20,7 @@ export const AddToPlaylist = ({ vid }) => {
   }
   },[showModal]);
 
-  const createPlaylistHandler = (event) => {
+  const createPlaylist = (event) => {
     if (event.key === "Enter") {
       dispatch({ type: "ADD_TO_NEW_PLAYLIST", payload: { vid, listName } });
       setListName("");
@@ -75,7 +75,7 @@ export const AddToPlaylist = ({ vid }) => {
             </ul>
             <div className="txt-box">
               <input
-                onKeyDown={createPlaylistHandler}
+                onKeyDown={createPlaylist}
                 onChange={(event) => setListName(event.target.value)}
                 value={listName}
                 className="txt-input"
