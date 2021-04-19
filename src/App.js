@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { serverRequest } from "./api/serverRequest";
 import "./App.css";
 import {
   VideoList,
@@ -16,20 +14,7 @@ import { VideoPage } from "./Components/VideoPlayer/videoPage";
 function App() {
   const {
     state: { toastMsg },
-    dispatch,
   } = useDataContext();
-
-  useEffect(() => {
-    (async () => {
-      const {
-        response: { videos },
-        error,
-      } = await serverRequest("api/videos", "GET");
-      if (!error) {
-        dispatch({ type: "SET_VIDEOLIST", payload: videos });
-      }
-    })();
-  }, [dispatch]);
 
   return (
     <div className="App">
@@ -39,7 +24,7 @@ function App() {
         <Route path="/" element={<VideoList />} />
         <Route path="/liked-videos" element={<LikedVideos />} />
         <Route path="/playlist" element={<Playlist />} />
-        <Route path="/history" element={<History/>}/>
+        <Route path="/history" element={<History />} />
         <Route path="/:videoId" element={<VideoPage />} />
       </Routes>
     </div>

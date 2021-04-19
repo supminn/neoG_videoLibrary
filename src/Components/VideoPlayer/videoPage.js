@@ -18,7 +18,7 @@ export const VideoPage = () => {
   } = useDataContext();
 
   const { title, author, image, views, date, subscribers, description } = videoList.find(
-    (video) => video.id === videoId
+    (video) => video.vid === videoId
   );
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export const VideoPage = () => {
                 : "fas fa-thumbs-up"
             }
           ></i>
-          <AddToPlaylist id={videoId} />
+          <AddToPlaylist vid={videoId} />
         </span>
       </div>
       <p className="video-description">

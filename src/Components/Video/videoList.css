@@ -11,6 +11,10 @@
     right:0;
 }
 
+.loader-container{
+    margin-top: 10rem;
+}
+
 @media screen and (min-width: 576px) {
     .videolist-container{
         grid-template-columns: repeat(2, 1fr);

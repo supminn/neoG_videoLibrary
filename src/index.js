@@ -3,11 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { setupMockServer } from "./api/mock-server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { DataProvider } from "./Context/data-context";
 
-setupMockServer();
 
 ReactDOM.render(
   <React.StrictMode>

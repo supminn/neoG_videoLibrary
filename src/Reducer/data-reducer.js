@@ -23,7 +23,7 @@ export const dataReducer = (state, { type, payload }) => {
       const list = state.playlist.find(
         (item) => item.listId === payload.listId
       );
-      const videoFlag = list.videos.some((videoId) => videoId === payload.id);
+      const videoFlag = list.videos.some((videoId) => videoId === payload.vid);
 
       return {
         ...state,
@@ -35,8 +35,8 @@ export const dataReducer = (state, { type, payload }) => {
             ? {
                 ...listItem,
                 videos: videoFlag
-                  ? listItem.videos.filter((videoId) => videoId !== payload.id)
-                  : listItem.videos.concat(payload.id),
+                  ? listItem.videos.filter((videoId) => videoId !== payload.vid)
+                  : listItem.videos.concat(payload.vid),
               }
             : listItem
         ),
@@ -51,7 +51,7 @@ export const dataReducer = (state, { type, payload }) => {
           playlist: state.playlist.concat({
             listId: state.playlist.length + 1,
             name: payload.listName,
-            videos: [payload.id],
+            videos: [payload.vid],
           }),
         };
       } else {
@@ -121,7 +121,7 @@ export const dataReducer = (state, { type, payload }) => {
 
  case "TOGGLE_PLAYLIST":
       const list = state.playlist.find((item) => item.name === payload.name);
-      const videoFlag = list.videos.some((videoId) => videoId === payload.id);
+      const videoFlag = list.videos.some((videoId) => videoId === payload.vid);
       return {
         ...state,
         toastMsg: videoFlag
@@ -131,9 +131,9 @@ export const dataReducer = (state, { type, payload }) => {
           vList.name === list.name
             ? videoFlag
               ? state.playlist.videos.filter(
-                  (videoId) => videoId !== payload.id
+                  (videoId) => videoId !== payload.vid
                 )
-              : state.playlist.videos.concat(payload.id)
+              : state.playlist.videos.concat(payload.vid)
             : vList
         ),
       };
