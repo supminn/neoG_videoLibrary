@@ -24,7 +24,7 @@ export const VideoList = () => {
         setShowLoader(true);
         const {
           data: { videos },
-        } = await axios.get("http://localhost:5000/videos");
+        } = await axios.get("https://api-supminn.herokuapp.com/videos");
         dispatch({ type: "SET_VIDEOLIST", payload: videos });
         setShowLoader(false);
       } catch (err) {

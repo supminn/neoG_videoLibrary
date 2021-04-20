@@ -29,6 +29,9 @@ This video library application would have the following features. It is being bu
     * Add respective classes
     * Change theme using ThemeProvider (upcoming)
 
+5. Database and API
+    * Video list from mongoDB using expressAPI
+    
 ## Practices
 * Mirage for backend. Setup database, products and address management | faker data - seeded to mirage
 * Custom hook for axios calls
@@ -47,5 +50,5 @@ This video library application would have the following features. It is being bu
 * Take personal notes from video - capture video time duration
 * Home page and video listing page design
 * Clicking on dp or author would filter the page with those details.
-
+* Backend database and api calls
 
