@@ -1,18 +1,24 @@
-export { Navigation } from "./Navigation/navigation";
-export { Toast } from "./Toast/toast";
+export { Navigation } from "./Navigation/Navigation";
+export { Toast } from "./Toast/Toast";
 
-export { VideoList } from "./Video/videoList";
-export { VideoCard } from "./Video/videoCard";
-export { videoExists } from "./Video/videoUtil";
-export { imageURL } from "./Video/videoUtil";
-export { videoURL } from "./Video/videoUtil";
-export { formatNumber } from "./Video/videoUtil";
-export { formatDate } from "./Video/videoUtil";
+export { VideoList } from "./Video/VideoList";
+export { VideoCard } from "./Video/VideoCard";
+export { VideoPage } from "./VideoPlayer/VideoPage";
 
-export { LikedVideos } from "./LikedVideos/likedVideos";
-export { Playlist } from "./Playlist/playlist";
-export { AddToPlaylist } from "./Playlist/addToPlaylist";
-export { PlaylistCard } from "./Playlist/playlistCard";
+export {
+  videoExists,
+  imageURL,
+  videoURL,
+  formatNumber,
+  formatDate,
+} from "./Video/videoUtil";
 
-export { History } from "./History/history";
-export { HistoryCard } from "./History/historyCard";
+export { LikedVideos } from "./LikedVideos/LikedVideos";
+export { LikedVideoCard } from "./LikedVideos/LikedVideoCard";
+
+export { Playlist } from "./Playlist/Playlist";
+export { AddToPlaylist } from "./Playlist/AddToPlaylist";
+export { PlaylistCard } from "./Playlist/PlaylistCard";
+
+export { History } from "./History/History";
+export { HistoryCard } from "./History/HistoryCard";

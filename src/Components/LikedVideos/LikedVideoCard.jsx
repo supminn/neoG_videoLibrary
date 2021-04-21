@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
-import { AddToPlaylist } from "../Playlist/addToPlaylist";
-import { imageURL, videoExists } from "./videoUtil";
+import { AddToPlaylist } from "../Playlist/AddToPlaylist";
+import { imageURL } from "../Video/videoUtil";
 
-export const VideoCard = ({ vid }) => {
+export const LikedVideoCard = ({ vid }) => {
   const {
-    state: { videoList, likedVideos },
+    state: { videoList },
     dispatch,
   } = useDataContext();
 
@@ -23,25 +23,20 @@ export const VideoCard = ({ vid }) => {
       />
       <div className="flex-container">
         <img className="avatar-sm" alt="author" src={image} />
-        <div>
         <b className="primaryBg-txt txt-title">{title}</b>
-        </div>
       </div>
       <small className="txt-small txt-grey">{author}</small>
       </Link>
       <small className="txt-grey">
-        <i
-          onClick={() => dispatch({ type: "TOGGLE_LIKE", payload: vid })}
-          className={
-            videoExists(likedVideos, vid)
-              ? "fas fa-thumbs-up primaryBg-txt"
-              : "fas fa-thumbs-up"
-          }
-        ></i>
       <AddToPlaylist vid={vid}/>
       </small>
+      <button type="button" onClick={() => dispatch({
+                        type: "TOGGLE_LIKE",
+                        payload: vid 
+                      })}
+            className="btn btn-secondary btn-dismiss"><i className="fas fa-times"></i></button>
+  
     </div>
-
   );
 };
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDataContext } from "../../Context/data-context";
-import { HistoryCard } from "./historyCard";
+import { HistoryCard } from "./HistoryCard";
 import historyPic from "../../images/history.svg";
 
 export const History = () => {

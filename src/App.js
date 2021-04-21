@@ -9,7 +9,7 @@ import {
 } from "./Components";
 import { useDataContext } from "./Context/data-context";
 import { Routes, Route } from "react-router-dom";
-import { VideoPage } from "./Components/VideoPlayer/videoPage";
+import { VideoPage } from "./Components/VideoPlayer/VideoPage";
 
 function App() {
   const {

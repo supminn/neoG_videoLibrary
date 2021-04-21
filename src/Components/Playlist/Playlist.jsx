@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
-import { PlaylistCard } from "./playlistCard";
+import { PlaylistCard } from "./PlaylistCard";
 
 export const Playlist = () => {
   const {

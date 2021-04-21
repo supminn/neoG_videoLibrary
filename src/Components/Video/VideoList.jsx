@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDataContext } from "../../Context/data-context";
-import { FilterVideos, getFilteredVideos } from "./filterVideos";
-import { VideoCard } from "./videoCard";
+import { FilterVideos, getFilteredVideos } from "./FilterVideos";
+import { VideoCard } from "./VideoCard";
 import videolist from "../../images/videolist.svg";
 import axios from "axios";
 import Loader from "react-loader-spinner";

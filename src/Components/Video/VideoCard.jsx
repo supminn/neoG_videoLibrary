@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../Context/data-context";
-import { AddToPlaylist } from "../Playlist/addToPlaylist";
-import { imageURL, videoExists } from "../Video/videoUtil";
+import { AddToPlaylist } from "../Playlist/AddToPlaylist";
+import { imageURL, videoExists } from "./videoUtil";
 
-export const HistoryCard = ({ vid }) => {
+export const VideoCard = ({ vid }) => {
   const {
     state: { videoList, likedVideos },
     dispatch,
@@ -23,7 +23,9 @@ export const HistoryCard = ({ vid }) => {
       />
       <div className="flex-container">
         <img className="avatar-sm" alt="author" src={image} />
+        <div>
         <b className="primaryBg-txt txt-title">{title}</b>
+        </div>
       </div>
       <small className="txt-small txt-grey">{author}</small>
       </Link>
@@ -38,12 +40,6 @@ export const HistoryCard = ({ vid }) => {
         ></i>
       <AddToPlaylist vid={vid}/>
       </small>
-      <button type="button" onClick={() => dispatch({
-                        type: "REMOVE_FROM_HISTORY",
-                        payload: vid 
-                      })}
-            className="btn btn-secondary btn-dismiss"><i className="fas fa-times"></i></button>
-  
     </div>
 
   );
