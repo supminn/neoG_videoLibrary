@@ -8,7 +8,6 @@ export const FilterVideos = () => {
   const searchHandler = (e) => {
     if (e.keyCode === 13) {
       dispatch({ type: "SEARCH_VIDEO", payload: searchTxt });
-      setSearchTxt("");
     }
   };
 
@@ -37,7 +36,7 @@ export const FilterVideos = () => {
       <button
         type="button"
         className="btn-clear"
-        onClick={() => dispatch({ type: "CLEAR_FILTER" })}
+        onClick={() =>{setSearchTxt(""); dispatch({ type: "CLEAR_FILTER" })} }
       >
         Clear Search
       </button>

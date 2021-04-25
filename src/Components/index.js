@@ -19,6 +19,7 @@ export { LikedVideoCard } from "./LikedVideos/LikedVideoCard";
 export { Playlist } from "./Playlist/Playlist";
 export { AddToPlaylist } from "./Playlist/AddToPlaylist";
 export { PlaylistCard } from "./Playlist/PlaylistCard";
+export { PlaylistModal } from "./Playlist/PlaylistModal";
 
 export { History } from "./History/History";
 export { HistoryCard } from "./History/HistoryCard";

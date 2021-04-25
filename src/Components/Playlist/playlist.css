@@ -29,8 +29,7 @@
 .playlist-edited {
     font-size: 1.2rem;
     border-radius: 1rem;
-    /* max-width: 10rem; */
-    width: max-content;
+    width: 80%;
     padding: 0.5rem;
     outline: var(--theme100);
     text-align: center;
@@ -70,6 +69,7 @@
 }
 
 .playlist-edit-icons{
+    display: flex;
     padding: 0.5rem;
     padding-top: 0.8rem;
 }

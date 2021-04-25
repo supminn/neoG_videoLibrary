@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="route-container">{toastMsg && <Toast />}</div>
+      <div className="toastmsg-container">{toastMsg && <Toast />}</div>
       <Navigation />
       <Routes>
         <Route path="/" element={<VideoList />} />
