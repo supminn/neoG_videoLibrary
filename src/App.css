@@ -6,6 +6,7 @@
 @import url("./Components/Video/filters.css");
 @import url("./Components/Video/videoList.css");
 @import url("./Components/History/history.css");
+@import url("./Components/Authentication/authentication.css");
 
 .img-svg {
   padding: 0 1rem;

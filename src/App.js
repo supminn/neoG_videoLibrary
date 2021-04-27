@@ -6,10 +6,15 @@ import {
   LikedVideos,
   Playlist,
   History,
+  PrivateRoute,
+  UserProfile,
+  Login,
+  Signup,
+  VideoPage
 } from "./Components";
-import { useDataContext } from "./Context/data-context";
+import { useDataContext } from "./Context";
 import { Routes, Route } from "react-router-dom";
-import { VideoPage } from "./Components/VideoPlayer/VideoPage";
+
 
 function App() {
   const {
@@ -22,10 +27,13 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<VideoList />} />
-        <Route path="/liked-videos" element={<LikedVideos />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="/history" element={<History />} />
         <Route path="/:videoId" element={<VideoPage />} />
+        <PrivateRoute path="/liked-videos" element={<LikedVideos />} />
+        <PrivateRoute path="/playlist" element={<Playlist />} />
+        <PrivateRoute path="/history" element={<History />} />
+        <PrivateRoute path="/user-profile" element={<UserProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   );

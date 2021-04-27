@@ -23,3 +23,9 @@ export { PlaylistModal } from "./Playlist/PlaylistModal";
 
 export { History } from "./History/History";
 export { HistoryCard } from "./History/HistoryCard";
+
+export { PrivateRoute } from "./Private/PrivateRoute";
+
+export { UserProfile } from "./Authentication/UserProfile";
+export { Login } from "./Authentication/Login";
+export { Signup } from "./Authentication/Signup";
