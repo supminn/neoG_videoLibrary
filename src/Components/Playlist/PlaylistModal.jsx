@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { videoExists } from "../Video/videoUtil";
-import { useDataContext } from "../../Context/data-context";
+import { videoExists } from "../../Utils";
+import { useDataContext } from "../../Context";
 
 export const PlaylistModal = ({ _id, setShowModal }) => {
   const {

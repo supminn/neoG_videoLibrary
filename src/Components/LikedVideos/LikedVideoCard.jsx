@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useDataContext } from "../../Context/data-context";
+import { useDataContext } from "../../Context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
-import { imageURL } from "../Video/videoUtil";
+import { imageURL } from "../../Utils";
 
 export const LikedVideoCard = ({ _id }) => {
   const {

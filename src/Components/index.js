@@ -5,14 +5,6 @@ export { VideoList } from "./Video/VideoList";
 export { VideoCard } from "./Video/VideoCard";
 export { VideoPage } from "./VideoPlayer/VideoPage";
 
-export {
-  videoExists,
-  imageURL,
-  videoURL,
-  formatNumber,
-  formatDate,
-} from "./Video/videoUtil";
-
 export { LikedVideos } from "./LikedVideos/LikedVideos";
 export { LikedVideoCard } from "./LikedVideos/LikedVideoCard";
 

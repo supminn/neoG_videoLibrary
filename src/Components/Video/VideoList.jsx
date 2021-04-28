@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDataContext } from "../../Context/data-context";
+import { useDataContext } from "../../Context";
 import { FilterVideos, getFilteredVideos } from "./FilterVideos";
 import { VideoCard } from "./VideoCard";
 import videolist from "../../images/videolist.svg";

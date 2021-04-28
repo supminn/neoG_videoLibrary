@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDataContext } from "../../Context/data-context"
+import { useDataContext } from "../../Context"
 import { LikedVideoCard } from "./LikedVideoCard";
 import like from "../../images/like.svg";
 

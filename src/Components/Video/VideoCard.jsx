@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../Context";
-import { useDataContext } from "../../Context/data-context";
+import { useDataContext } from "../../Context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
-import { imageURL, videoExists } from "./videoUtil";
+import { imageURL, videoExists } from "../../Utils";
 
 export const VideoCard = ({ _id }) => {
   const {

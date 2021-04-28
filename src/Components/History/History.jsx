@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDataContext } from "../../Context/data-context";
+import { useDataContext } from "../../Context";
 import { HistoryCard } from "./HistoryCard";
 import historyPic from "../../images/history.svg";
 

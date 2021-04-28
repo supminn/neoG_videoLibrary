@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router";
-import { useDataContext } from "../../Context/data-context";
+import { useDataContext } from "../../Context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
 import {
   formatDate,
   formatNumber,
   videoExists,
   videoURL,
-} from "../Video/videoUtil";
+} from "../../Utils";
 
 export const VideoPage = () => {
   const { videoId } = useParams();

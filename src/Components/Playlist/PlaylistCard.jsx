@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useDataContext } from "../../Context/data-context";
-import { formatNumber, imageURL } from "../Video/videoUtil";
+import { useDataContext } from "../../Context";
+import { formatNumber, imageURL } from "../../Utils";
 
 export const PlaylistCard = ({ _id, listId }) => {
   const {
