@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { useDataContext } from "../../Context";
+import { useAuthContext, useDataContext } from "../../Context";
 import { formatNumber, imageURL } from "../../Utils";
+import { updateUserHistory } from "../../Utils/serverRequest";
 
 export const PlaylistCard = ({ _id, listId }) => {
   const {
     state: { videoList },
     dispatch,
   } = useDataContext();
+  const { userData, setShowLoader } = useAuthContext();
 
   const { vid, title, author, image, views } = videoList.find(
     (video) => video._id === _id
@@ -17,7 +19,15 @@ export const PlaylistCard = ({ _id, listId }) => {
       <Link
         className="no-line"
         to={`/${_id}`}
-        onClick={() => dispatch({ type: "ADD_TO_HISTORY", payload: _id })}
+        onClick={() =>
+          updateUserHistory(
+            _id,
+            userData._id,
+            "ADD_TO_HISTORY",
+            dispatch,
+            setShowLoader
+          )
+        }
       >
         <img
           className="card-img playlist-card-img"

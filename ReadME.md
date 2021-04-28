@@ -45,7 +45,6 @@ This video library application would have the following features. It is being bu
 3. Axios
 
 ### Future Enhancements
-* Move videoUtils into utils folder
 * Filter/search by category of videos
 * Take personal notes from video - capture video time duration
 * Home page and video listing page design

@@ -1,18 +1,27 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDataContext } from "../../Context"
+import { useAuthContext, useDataContext } from "../../Context"
 import { LikedVideoCard } from "./LikedVideoCard";
 import like from "../../images/like.svg";
+import { getLikedVideos } from "../../Utils/serverRequest";
+import Loader from "react-loader-spinner";
 
 export const LikedVideos = () => {
-    const {state:{likedVideos}} = useDataContext();
-
+    const {state:{likedVideos}, dispatch} = useDataContext();
+    const {userData,showLoader, setShowLoader} = useAuthContext();
     useEffect(() => {
         document.title = "SupVision | Liked";
     },[]);
     
+    useEffect(() => {
+        getLikedVideos(userData._id,dispatch,setShowLoader);
+    },[])
 
-    return(
+    return showLoader ? (
+        <div className="loader-container">
+          <Loader type="Oval" color="#00BFFF" height={80} width={80} />
+        </div>
+      ) : (
         <>
         <h2 className="txt-header-2">Liked <span className="secondary-txt">Videos</span></h2>
         {likedVideos.length>0 && <small className="primaryBg-txt">({likedVideos.length} videos)</small>}

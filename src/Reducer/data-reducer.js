@@ -5,6 +5,12 @@ export const dataReducer = (state, { type, payload }) => {
     case "SET_VIDEOLIST":
       return { ...state, videoList: payload };
 
+    case "SET_LIKEDVIDEOS":
+      return { ...state, likedVideos: payload };
+
+      case "SET_HISTORY":
+        return { ...state, history: payload };
+
     case "TOGGLE_LIKE":
       return {
         ...state,

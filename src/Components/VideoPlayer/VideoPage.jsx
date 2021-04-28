@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router";
-import { useDataContext } from "../../Context";
+import { useNavigate, useParams } from "react-router";
+import { useAuthContext, useDataContext } from "../../Context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
 import {
   formatDate,
   formatNumber,
+  updateLikedVideo,
   videoExists,
   videoURL,
 } from "../../Utils";
@@ -16,6 +17,8 @@ export const VideoPage = () => {
     state: { videoList, likedVideos },
     dispatch,
   } = useDataContext();
+  const {login, userData, setShowLoader} = useAuthContext();
+  const navigate = useNavigate();
 
   const { vid, title, author, image, views, date, subscribers, description } = videoList.find(
     (video) => video._id === videoId
@@ -47,7 +50,7 @@ export const VideoPage = () => {
         </div>
         <span className="txt-grey">
           <i
-            onClick={() => dispatch({ type: "TOGGLE_LIKE", payload: videoId })}
+            onClick={() => login?updateLikedVideo(videoId, userData._id, dispatch,setShowLoader):navigate("/login")}
             className={
               videoExists(likedVideos, videoId)
                 ? "fas fa-thumbs-up primaryBg-txt"
