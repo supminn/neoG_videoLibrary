@@ -31,7 +31,7 @@ export const History = () => {
           .slice(0)
           .reverse()
           .map((videoId) => (
-            <HistoryCard key={videoId} vid={videoId} />
+            <HistoryCard key={videoId} _id={videoId} />
           ))}
       </div>
       {history.length === 0 && (

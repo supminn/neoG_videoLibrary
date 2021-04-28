@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useDataContext } from "../../Context/data-context";
+import { useNavigate } from "react-router";
+import { useDataContext, useAuthContext } from "../../Context";
 import { PlaylistModal } from "./PlaylistModal";
 
-export const AddToPlaylist = ({ vid }) => {
+export const AddToPlaylist = ({ _id }) => {
   const {
     state: { playlist }
   } = useDataContext();
-
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+  const {login} = useAuthContext();
 
   useEffect(() => {
     const modal = document.querySelector(".modal-container");
@@ -18,12 +20,12 @@ export const AddToPlaylist = ({ vid }) => {
   }
   },[showModal]);
 
-  const checkInPlaylist = (vid) =>
-    playlist.some((item) => item.videos.some((videoId) => videoId === vid));
+  const checkInPlaylist = (_id) =>
+    playlist.some((item) => item.videos.some((videoId) => videoId === _id));
 
   return (
     <>
-      {checkInPlaylist(vid) ? (
+      {checkInPlaylist(_id) ? (
         <i
           onClick={() => setShowModal((showModal) => !showModal)}
           className="btn fas fa-lg fa-check primaryBg-txt"
@@ -33,14 +35,14 @@ export const AddToPlaylist = ({ vid }) => {
         </i>
       ) : (
         <i
-          onClick={() => setShowModal((showModal) => !showModal)}
+          onClick={() => login?setShowModal((showModal) => !showModal):navigate("/login")}
           className="btn fas fa-lg fa-plus"
         >
           {" "}
           Save{" "}
         </i>
       )}
-      {showModal && <PlaylistModal vid={vid} setShowModal={setShowModal}/>}
+      {showModal && <PlaylistModal _id={_id} setShowModal={setShowModal}/>}
     </>
   );
 };

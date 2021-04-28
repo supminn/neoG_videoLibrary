@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../Context";
 
 export const UserProfile = () => {
   const { logOutUser, userData } = useAuthContext();
+
+  useEffect(() => {
+    document.title = "SupVision | User Profile";
+  }, []);
 
   return (
     <>

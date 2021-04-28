@@ -20,7 +20,7 @@ export const dataReducer = (state, { type, payload }) => {
       const list = state.playlist.find(
         (item) => item.listId === payload.listId
       );
-      const videoFlag = list.videos.some((videoId) => videoId === payload.vid);
+      const videoFlag = list.videos.some((videoId) => videoId === payload._id);
 
       return {
         ...state,
@@ -32,8 +32,8 @@ export const dataReducer = (state, { type, payload }) => {
             ? {
                 ...listItem,
                 videos: videoFlag
-                  ? listItem.videos.filter((videoId) => videoId !== payload.vid)
-                  : listItem.videos.concat(payload.vid),
+                  ? listItem.videos.filter((videoId) => videoId !== payload._id)
+                  : listItem.videos.concat(payload._id),
               }
             : listItem
         ),
@@ -47,7 +47,7 @@ export const dataReducer = (state, { type, payload }) => {
           playlist: state.playlist.concat({
             listId: state.playlist.length + 1,
             name: payload.listName,
-            videos: [payload.vid],
+            videos: [payload._id],
           }),
         };
       } else {

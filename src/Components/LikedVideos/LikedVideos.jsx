@@ -17,8 +17,8 @@ export const LikedVideos = () => {
         <h2 className="txt-header-2">Liked <span className="secondary-txt">Videos</span></h2>
         {likedVideos.length>0 && <small className="primaryBg-txt">({likedVideos.length} videos)</small>}
      <div className="card-container">
-     {likedVideos.map(videoId => (
-                <LikedVideoCard key={videoId} vid={videoId} />
+     {likedVideos.map(_id => (
+                <LikedVideoCard key={_id} _id={_id} />
         ))}
      </div>
          {likedVideos.length===0 && (

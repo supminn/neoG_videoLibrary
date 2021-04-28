@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../Context";
@@ -13,6 +13,10 @@ export const Signup = () => {
     registerUser,
     userData,showLoader, setShowLoader
   } = useAuthContext();
+
+  useEffect(() => {
+    document.title = "SupVision | Signup";
+  }, []);
 
   const signupHandler = async (e) => {
     setShowLoader(true);
@@ -102,13 +106,13 @@ export const Signup = () => {
         <div className="div-container">
           <p className="txt-desc primaryBg-txt">
             Hi <b className="secondary-txt">{userData.name}</b>, thank you for
-            signing up with <b>SupMart</b>.
+            signing up with <b>SupVision</b>.
           </p>
           <p className="txt-desc primaryBg-txt">
-            You can now avail <em>express delivery</em> on select products
+            You are now eligible to <em>like videos</em> and add videos to <em>playlist</em>.
           </p>
-          <NavLink to="/products">
-            <button className="btn btn-primary">Start shopping!</button>
+          <NavLink to="/">
+            <button className="btn btn-primary">Start watching!</button>
           </NavLink>
         </div>
       )}

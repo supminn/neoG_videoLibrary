@@ -17,8 +17,8 @@ export const VideoPage = () => {
     dispatch,
   } = useDataContext();
 
-  const { title, author, image, views, date, subscribers, description } = videoList.find(
-    (video) => video.vid === videoId
+  const { vid, title, author, image, views, date, subscribers, description } = videoList.find(
+    (video) => video._id === videoId
   );
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const VideoPage = () => {
     <>
       <ReactPlayer
         className="video-container"
-        url={videoURL(videoId)}
+        url={videoURL(vid)}
         playing={true} controls
         volume={1}
       />
@@ -54,7 +54,7 @@ export const VideoPage = () => {
                 : "fas fa-thumbs-up"
             }
           ></i>
-          <AddToPlaylist vid={videoId} />
+          <AddToPlaylist _id={videoId} />
         </span>
       </div>
       <p className="video-description">

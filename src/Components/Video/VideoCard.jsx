@@ -1,21 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../Context";
 import { useDataContext } from "../../Context/data-context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
 import { imageURL, videoExists } from "./videoUtil";
 
-export const VideoCard = ({ vid }) => {
+export const VideoCard = ({ _id }) => {
   const {
     state: { videoList, likedVideos },
     dispatch,
   } = useDataContext();
+  const {login} = useAuthContext();
+  const navigate = useNavigate();
 
-  const { title, author, image } = videoList.find(
-    (video) => video.vid === vid
+  const { vid, title, author, image } = videoList.find(
+    (video) => video._id === _id
   );
 
   return (
     <div className="card card-shadow">
-      <Link className="no-line" to={`/${vid}`} onClick={() => dispatch({type:"ADD_TO_HISTORY",payload:vid})}>
+      <Link className="no-line" to={`/${_id}`} onClick={() => dispatch({type:"ADD_TO_HISTORY",payload:_id})}>
       <img
         className="card-img"
         alt="video-still"
@@ -31,17 +34,20 @@ export const VideoCard = ({ vid }) => {
       </Link>
       <small className="txt-grey">
         <i
-          onClick={() => dispatch({ type: "TOGGLE_LIKE", payload: vid })}
+          onClick={() => login?dispatch({ type: "TOGGLE_LIKE", payload: _id }):navigate("/login")}
           className={
-            videoExists(likedVideos, vid)
+            videoExists(likedVideos, _id)
               ? "fas fa-thumbs-up primaryBg-txt"
               : "fas fa-thumbs-up"
           }
         ></i>
-      <AddToPlaylist vid={vid}/>
+      <AddToPlaylist _id={_id}/>
       </small>
     </div>
 
   );
 };
 
+/*
+
+*/

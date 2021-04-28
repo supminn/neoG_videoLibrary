@@ -1,5 +1,5 @@
 import Loader from "react-loader-spinner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../Context";
 import { Password } from "./Password";
@@ -10,6 +10,9 @@ export const Login = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
  
+  useEffect(() => {
+    document.title = "SupVision | Login";
+  }, []);
 
   const loginHandler = async (e) => {
       setShowLoader(true);
@@ -20,7 +23,7 @@ export const Login = () => {
         setErrorMsg(res.message);
       }
       else{
-        navigate(state?.from ? state.from : "/products");
+        navigate(state?.from ? state.from : "/");
       }
   }
   return (
