@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { videoExists } from "../../Utils";
-import { useDataContext } from "../../Context";
+import { useAuthContext, useDataContext } from "../../Context";
+import { createUserPlaylist, updateUserPlaylist } from "../../Utils/serverRequest";
 
 export const PlaylistModal = ({ _id, setShowModal }) => {
   const {
@@ -10,10 +11,18 @@ export const PlaylistModal = ({ _id, setShowModal }) => {
 
   const [listName, setListName] = useState("");
 
-  const createPlaylist = (event) => {
+  const { userData, setShowLoader } = useAuthContext();
+
+  const createPlaylist = async (event) => {
     if (event.key === "Enter") {
-      dispatch({ type: "ADD_TO_NEW_PLAYLIST", payload: { _id, listName } });
-      setListName("");
+      await createUserPlaylist(
+        userData._id,
+        listName,
+        _id,
+        dispatch,
+        setShowLoader,
+        setListName
+      );
     }
   };
 
@@ -23,16 +32,19 @@ export const PlaylistModal = ({ _id, setShowModal }) => {
         <h3 className="modal-header">Playlists</h3>
         <hr />
         <ul className="list-checkbox">
-          {playlist.map(({ listId, name, videos }) => (
-            <li key={name} className="secondary-txt">
+          {playlist.map(({ _id: listId, name, videos }) => (
+            <li key={listId} className="secondary-txt">
               <label>
                 <input
                   type="checkbox"
                   onChange={() =>
-                    dispatch({
-                      type: "TOGGLE_PLAYLIST",
-                      payload: { listId, _id },
-                    })
+                    updateUserPlaylist(
+                      userData._id,
+                      listId,
+                      _id,
+                      dispatch,
+                      setShowLoader
+                    )
                   }
                   checked={videoExists(videos, _id)}
                 />{" "}
@@ -52,13 +64,14 @@ export const PlaylistModal = ({ _id, setShowModal }) => {
           />
           <span
             className="txt-icon"
-            onClick={() => {
-              dispatch({
-                type: "ADD_TO_NEW_PLAYLIST",
-                payload: { _id, listName },
-              });
-              setListName("");
-            }}
+            onClick={() => createUserPlaylist(
+              userData._id,
+              listName,
+              _id,
+              dispatch,
+              setShowLoader,
+              setListName
+            )}
           >
             <i className="fas fa-lg fa-plus-circle"></i>
           </span>

@@ -5,7 +5,9 @@ export const getLikedVideos = async (userId, dispatch, setShowLoader) => {
   setShowLoader(true);
   const {
     data: { likedVideoItems },
-  } = await axios.get(`https://api-supminn.herokuapp.com/liked-video/${userId}`);
+  } = await axios.get(
+    `https://api-supminn.herokuapp.com/liked-video/${userId}`
+  );
   const videoList = likedVideoItems.map((item) => item._id);
   dispatch({ type: "SET_LIKEDVIDEOS", payload: videoList });
   setShowLoader(false);
@@ -88,4 +90,101 @@ export const updateUserHistory = async (
     }
   }
   setShowLoader(false);
+};
+
+export const getUserPlaylist = async (userId, dispatch, setShowLoader) => {
+  setShowLoader(true);
+  let {
+    data: { playlist },
+  } = await axios.get(`https://api-supminn.herokuapp.com/playlist/${userId}`);
+  playlist = playlist.map(list => ({...list, videos: list.videos.map(video => video._id)}));
+  dispatch({ type: "SET_PLAYLIST", payload: playlist });
+  setShowLoader(false);
+};
+
+export const renamePlaylist = async (
+  userId,
+  listId,
+  listName,
+  dispatch,
+  setShowLoader
+) => {
+  setShowLoader(true);
+  dispatch({ type: "SHOW_TOAST", payload: "Renaming Playlist..." });
+  const { status } = await axios.put(
+    `https://api-supminn.herokuapp.com/playlist/${userId}`,
+    {
+      _id: listId,
+      name: listName,
+    }
+  );
+  dispatch({ type: "RENAME_PLAYLIST", payload: { listId, listName } });
+  setShowLoader(false);
+};
+
+export const updateUserPlaylist = async (
+  userId,
+  listId,
+  videoId,
+  dispatch,
+  setShowLoader
+) => {
+  setShowLoader(true);
+  dispatch({ type: "SHOW_TOAST", payload: "Updating Playlist..." });
+  const { status } = await axios.post(
+    `https://api-supminn.herokuapp.com/playlist/${userId}/list/${listId}`,
+    {
+      _id: videoId,
+    }
+  );
+  dispatch({
+    type: "TOGGLE_PLAYLIST",
+    payload: { listId, _id: videoId },
+  });
+  setShowLoader(false);
+};
+
+export const deletePlaylist = async (
+  userId,
+  listId,
+  dispatch,
+  setShowLoader
+) => {
+  setShowLoader(true);
+  dispatch({ type: "SHOW_TOAST", payload: "Updating Playlist..." });
+  const { status } = await axios.put(
+    `https://api-supminn.herokuapp.com/playlist/${userId}/list/${listId}`
+  );
+  dispatch({ type: "DELETE_PLAYLIST", payload: listId });
+  setShowLoader(false);
+};
+
+export const createUserPlaylist = async (
+  userId,
+  listName,
+  videoId,
+  dispatch,
+  setShowLoader,
+  setListName
+) => {
+  if (listName) {
+    setShowLoader(true);
+    dispatch({ type: "SHOW_TOAST", payload: "Creating Playlist..." });
+    let {
+      data: { playlist },
+    } = await axios.post(
+      `https://api-supminn.herokuapp.com/playlist/${userId}`,
+      {
+        name: listName,
+        _id: videoId,
+      }
+    );
+    playlist.videos = playlist.videos.map(video => video._id);
+    dispatch({
+      type: "ADD_TO_NEW_PLAYLIST",
+      payload: playlist,
+    });
+    setListName("");
+    setShowLoader(false);
+  }
 };

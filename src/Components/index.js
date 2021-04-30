@@ -10,6 +10,7 @@ export { LikedVideoCard } from "./LikedVideos/LikedVideoCard";
 
 export { Playlist } from "./Playlist/Playlist";
 export { AddToPlaylist } from "./Playlist/AddToPlaylist";
+export { PlaylistHeader } from "./Playlist/PlaylistHeader";
 export { PlaylistCard } from "./Playlist/PlaylistCard";
 export { PlaylistModal } from "./Playlist/PlaylistModal";
 

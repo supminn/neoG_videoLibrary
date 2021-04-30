@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { useAuthContext, useDataContext } from "../../Context";
 import { formatNumber, imageURL } from "../../Utils";
-import { updateUserHistory } from "../../Utils/serverRequest";
+import {
+  updateUserHistory,
+  updateUserPlaylist,
+} from "../../Utils/serverRequest";
 
 export const PlaylistCard = ({ _id, listId }) => {
   const {
@@ -46,10 +49,7 @@ export const PlaylistCard = ({ _id, listId }) => {
       <button
         type="button"
         onClick={() =>
-          dispatch({
-            type: "TOGGLE_PLAYLIST",
-            payload: { listId, _id },
-          })
+          updateUserPlaylist(userData._id, listId, _id, dispatch, setShowLoader)
         }
         className="btn btn-secondary btn-dismiss"
       >

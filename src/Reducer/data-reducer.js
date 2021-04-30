@@ -8,8 +8,11 @@ export const dataReducer = (state, { type, payload }) => {
     case "SET_LIKEDVIDEOS":
       return { ...state, likedVideos: payload };
 
-      case "SET_HISTORY":
-        return { ...state, history: payload };
+    case "SET_HISTORY":
+      return { ...state, history: payload };
+
+    case "SET_PLAYLIST":
+      return { ...state, playlist: payload };
 
     case "TOGGLE_LIKE":
       return {
@@ -24,17 +27,16 @@ export const dataReducer = (state, { type, payload }) => {
 
     case "TOGGLE_PLAYLIST":
       const list = state.playlist.find(
-        (item) => item.listId === payload.listId
+        (item) => item._id === payload.listId
       );
       const videoFlag = list.videos.some((videoId) => videoId === payload._id);
-
       return {
         ...state,
         toastMsg: videoFlag
           ? `Removed from ${list.name}`
           : `Added to ${list.name}`,
         playlist: state.playlist.map((listItem) =>
-          listItem.listId === list.listId
+          listItem._id === list._id
             ? {
                 ...listItem,
                 videos: videoFlag
@@ -46,15 +48,11 @@ export const dataReducer = (state, { type, payload }) => {
       };
 
     case "ADD_TO_NEW_PLAYLIST":
-      if (payload.listName) {
+      if (payload.name) {
         return {
           ...state,
-          toastMsg: `Added to ${payload.listName}`,
-          playlist: state.playlist.concat({
-            listId: state.playlist.length + 1,
-            name: payload.listName,
-            videos: [payload._id],
-          }),
+          toastMsg: `Added to ${payload.name}`,
+          playlist: state.playlist.concat(payload),
         };
       } else {
         return { ...state };
@@ -63,14 +61,14 @@ export const dataReducer = (state, { type, payload }) => {
     case "DELETE_PLAYLIST":
       return {
         ...state,
-        playlist: state.playlist.filter((list) => list.listId !== payload),
+        playlist: state.playlist.filter((list) => list._id !== payload),
       };
 
     case "RENAME_PLAYLIST":
       return {
         ...state,
         playlist: state.playlist.map((list) =>
-          list.listId === payload.listId
+          list._id === payload.listId
             ? { ...list, name: payload.listName }
             : list
         ),

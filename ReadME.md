@@ -49,4 +49,3 @@ This video library application would have the following features. It is being bu
 * Take personal notes from video - capture video time duration
 * Home page and video listing page design
 * Clicking on dp or author would filter the page with those details.
-* Backend database and api calls

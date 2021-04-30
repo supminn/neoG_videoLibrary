@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import { DataProvider } from "./Context/data-context";
-import { AuthenticationProvider } from "./Context";
+import { AuthenticationProvider, DataProvider } from "./Context";
 
 ReactDOM.render(
   <React.StrictMode>

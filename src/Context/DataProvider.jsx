@@ -8,13 +8,7 @@ const initialArg = {
     videoList:[],
     likedVideos:[],
     history:[],
-    playlist:[
-      {
-        listId: 1,
-        name:"Watch Later",
-        videos: []
-      }
-    ],
+    playlist:[],
     toastMsg: "",
     searchValue:""
   };
