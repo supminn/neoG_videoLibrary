@@ -26,14 +26,16 @@ function App() {
   const { login, userData, setShowLoader } = useAuthContext();
 
   useEffect(() => {
-    getLikedVideos(userData._id, dispatch, setShowLoader);
-  }, [login]);
+    if (login && userData._id) {
+      getLikedVideos(userData._id, dispatch, setShowLoader);
+    }
+  }, [login, userData]);
 
   useEffect(() => {
     if (login && userData._id) {
       getUserPlaylist(userData._id, dispatch, setShowLoader);
     }
-  }, [login]);
+  }, [login, userData]);
 
   return (
     <div className="App">
