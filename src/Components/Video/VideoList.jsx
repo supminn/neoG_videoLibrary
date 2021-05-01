@@ -7,10 +7,14 @@ import Loader from "react-loader-spinner";
 
 export const VideoList = () => {
   const {
-    state: { videoList, searchValue },
+    state: { videoList, searchValue, categoryFilter },
   } = useDataContext();
   const { showLoader } = useAuthContext();
-  const filteredVideos = getFilteredVideos(videoList, searchValue);
+  const filteredVideos = getFilteredVideos(
+    videoList,
+    searchValue,
+    categoryFilter
+  );
 
   useEffect(() => {
     document.title = "SupVision | Videos";

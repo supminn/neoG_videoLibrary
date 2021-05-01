@@ -26,9 +26,7 @@ export const dataReducer = (state, { type, payload }) => {
       };
 
     case "TOGGLE_PLAYLIST":
-      const list = state.playlist.find(
-        (item) => item._id === payload.listId
-      );
+      const list = state.playlist.find((item) => item._id === payload.listId);
       const videoFlag = list.videos.some((videoId) => videoId === payload._id);
       return {
         ...state,
@@ -83,7 +81,7 @@ export const dataReducer = (state, { type, payload }) => {
               .concat(payload)
           : state.history.concat(payload),
       };
-    case "REMOVE_FROM_HISTORY": 
+    case "REMOVE_FROM_HISTORY":
       return {
         ...state,
         toastMsg: "Removed from history",
@@ -103,6 +101,9 @@ export const dataReducer = (state, { type, payload }) => {
         ...state,
         searchValue: "",
       };
+
+    case "FILTER_CATEGORY":
+      return { ...state, categoryFilter: payload };
 
     case "SHOW_TOAST":
       return { ...state, toastMsg: payload };

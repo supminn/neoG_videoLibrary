@@ -10,7 +10,8 @@ const initialArg = {
     history:[],
     playlist:[],
     toastMsg: "",
-    searchValue:""
+    searchValue:"",
+    categoryFilter:"All videos"
   };
   
   export const DataProvider = ({ children }) => {

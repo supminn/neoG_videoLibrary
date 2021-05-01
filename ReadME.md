@@ -9,7 +9,7 @@ This video library application would have the following features. It is being bu
     * Search for videos
     * Add to playlist
     * Add to liked videos 
-    * Filter based on category
+    * Filter based on channel/publisher
 
 2. Playlist functionality
     * Add video to playlist
@@ -29,23 +29,15 @@ This video library application would have the following features. It is being bu
     * Add respective classes
     * Change theme using ThemeProvider (upcoming)
 
-5. Database and API
-    * Video list from mongoDB using expressAPI
-    
-## Practices
-* Mirage for backend. Setup database, products and address management | faker data - seeded to mirage
-* Custom hook for axios calls
-* useContext for product, cart and wishlist
-* useReducer to main the cart, product and wishlist state; address state.
-* Segregate into respective folders
-
-### Additional Libraries
-1. Miragejs
-2. Faker
-3. Axios
+5. Database and API - MongoDB through Mongoose and ExpressJS.
+    * Video list 
+    * User Authentication
+    * User's watch history
+    * Liked Videos
+    * Watch later and custom playlists
 
 ### Future Enhancements
-* Filter/search by category of videos
 * Take personal notes from video - capture video time duration
 * Home page and video listing page design
 * Clicking on dp or author would filter the page with those details.
+* Refresh on video page - fix dependency

@@ -3,7 +3,8 @@ export {
     imageURL,
     videoURL,
     formatNumber,
-    formatDate
+    formatDate,
+    distinct
 } from "./arrayOperations";
 
 export {updateLikedVideo} from "./serverRequest";

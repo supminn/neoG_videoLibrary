@@ -16,3 +16,5 @@ export const formatDate = (date) => {
   const dateVal = new Date(date);
   return dateVal.toDateString().substring(4);
 };
+
+export const distinct = (value, index, self) => self.indexOf(value) === index;
