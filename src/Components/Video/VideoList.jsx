@@ -1,37 +1,20 @@
-import { useEffect, useState } from "react";
-import { useDataContext } from "../../Context";
+import { useEffect } from "react";
+import { useAuthContext, useDataContext } from "../../Context";
 import { FilterVideos, getFilteredVideos } from "./FilterVideos";
 import { VideoCard } from "./VideoCard";
 import videolist from "../../images/videolist.svg";
-import axios from "axios";
 import Loader from "react-loader-spinner";
 
 export const VideoList = () => {
   const {
     state: { videoList, searchValue },
-    dispatch,
   } = useDataContext();
+  const { showLoader } = useAuthContext();
   const filteredVideos = getFilteredVideos(videoList, searchValue);
-  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
     document.title = "SupVision | Videos";
   }, []);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setShowLoader(true);
-        const {
-          data: { videos },
-        } = await axios.get("https://api-supminn.herokuapp.com/videos");
-        dispatch({ type: "SET_VIDEOLIST", payload: videos });
-        setShowLoader(false);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  }, [dispatch]);
 
   return showLoader ? (
     <div className="loader-container">

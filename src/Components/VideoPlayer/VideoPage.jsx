@@ -10,6 +10,7 @@ import {
   videoExists,
   videoURL,
 } from "../../Utils";
+import Loader from "react-loader-spinner";
 
 export const VideoPage = () => {
   const { videoId } = useParams();
@@ -17,24 +18,35 @@ export const VideoPage = () => {
     state: { videoList, likedVideos },
     dispatch,
   } = useDataContext();
-  const {login, userData, setShowLoader} = useAuthContext();
+  const { login, userData, showLoader, setShowLoader } = useAuthContext();
   const navigate = useNavigate();
 
-  const { vid, title, author, image, views, date, subscribers, description } = videoList.find(
-    (video) => video._id === videoId
-  );
+  const {
+    vid,
+    title,
+    author,
+    image,
+    views,
+    date,
+    subscribers,
+    description,
+  } = videoList.find((video) => video._id === videoId);
 
   useEffect(() => {
     document.title = title;
-},[title]);
+  }, [title]);
 
-
-  return (
+  return showLoader ? (
+    <div className="loader-container">
+      <Loader type="Oval" color="#00BFFF" height={80} width={80} />
+    </div>
+  ) : (
     <>
       <ReactPlayer
         className="video-container"
         url={videoURL(vid)}
-        playing={true} controls
+        playing={true}
+        controls
         volume={1}
       />
       <h3 className="primaryBg-txt">{title}</h3>
@@ -50,7 +62,16 @@ export const VideoPage = () => {
         </div>
         <span className="txt-grey">
           <i
-            onClick={() => login?updateLikedVideo(videoId, userData._id, dispatch,setShowLoader):navigate("/login")}
+            onClick={() =>
+              login
+                ? updateLikedVideo(
+                    videoId,
+                    userData._id,
+                    dispatch,
+                    setShowLoader
+                  )
+                : navigate("/login")
+            }
             className={
               videoExists(likedVideos, videoId)
                 ? "fas fa-thumbs-up primaryBg-txt"
@@ -60,9 +81,7 @@ export const VideoPage = () => {
           <AddToPlaylist _id={videoId} />
         </span>
       </div>
-      <p className="video-description">
-          {description}
-      </p>
+      <p className="video-description">{description}</p>
     </>
   );
 };

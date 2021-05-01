@@ -15,7 +15,11 @@ import {
 import { useAuthContext, useDataContext } from "./Context";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { getLikedVideos, getUserPlaylist } from "./Utils/serverRequest";
+import {
+  getVideoList,
+  getLikedVideos,
+  getUserPlaylist,
+} from "./Utils/serverRequest";
 
 function App() {
   const {
@@ -24,6 +28,10 @@ function App() {
   } = useDataContext();
 
   const { login, userData, setShowLoader } = useAuthContext();
+
+  useEffect(() => {
+    getVideoList(dispatch, setShowLoader);
+  }, []);
 
   useEffect(() => {
     if (login && userData._id) {

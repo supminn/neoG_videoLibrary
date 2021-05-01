@@ -1,6 +1,19 @@
 /* eslint-disable default-case */
 import axios from "axios";
 
+export const getVideoList = async (dispatch, setShowLoader) => {
+  try {
+    setShowLoader(true);
+    const {
+      data: { videos },
+    } = await axios.get("https://api-supminn.herokuapp.com/videos");
+    dispatch({ type: "SET_VIDEOLIST", payload: videos });
+    setShowLoader(false);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const getLikedVideos = async (userId, dispatch, setShowLoader) => {
   setShowLoader(true);
   const {
@@ -97,7 +110,10 @@ export const getUserPlaylist = async (userId, dispatch, setShowLoader) => {
   let {
     data: { playlist },
   } = await axios.get(`https://api-supminn.herokuapp.com/playlist/${userId}`);
-  playlist = playlist.map(list => ({...list, videos: list.videos.map(video => video._id)}));
+  playlist = playlist.map((list) => ({
+    ...list,
+    videos: list.videos.map((video) => video._id),
+  }));
   dispatch({ type: "SET_PLAYLIST", payload: playlist });
   setShowLoader(false);
 };
@@ -179,7 +195,7 @@ export const createUserPlaylist = async (
         _id: videoId,
       }
     );
-    playlist.videos = playlist.videos.map(video => video._id);
+    playlist.videos = playlist.videos.map((video) => video._id);
     dispatch({
       type: "ADD_TO_NEW_PLAYLIST",
       payload: playlist,

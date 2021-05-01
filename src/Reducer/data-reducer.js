@@ -83,7 +83,7 @@ export const dataReducer = (state, { type, payload }) => {
               .concat(payload)
           : state.history.concat(payload),
       };
-    case "REMOVE_FROM_HISTORY":
+    case "REMOVE_FROM_HISTORY": 
       return {
         ...state,
         toastMsg: "Removed from history",

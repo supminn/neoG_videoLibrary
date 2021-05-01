@@ -9,9 +9,8 @@ export const HistoryCard = ({ _id }) => {
     state: { videoList, likedVideos },
     dispatch,
   } = useDataContext();
-  const {login, userData, setShowLoader} = useAuthContext();
+  const { login, userData, setShowLoader } = useAuthContext();
   const navigate = useNavigate();
-
   const { vid, title, author, image } = videoList.find(
     (video) => video._id === _id
   );
@@ -21,7 +20,15 @@ export const HistoryCard = ({ _id }) => {
       <Link
         className="no-line"
         to={`/${_id}`}
-        onClick={() => updateUserHistory(_id,userData._id, "ADD_TO_HISTORY",dispatch, setShowLoader)}
+        onClick={() =>
+          updateUserHistory(
+            _id,
+            userData._id,
+            "ADD_TO_HISTORY",
+            dispatch,
+            setShowLoader
+          )
+        }
       >
         <img className="card-img" alt="video-still" src={imageURL(vid)} />
         <div className="flex-container">
@@ -32,7 +39,11 @@ export const HistoryCard = ({ _id }) => {
       </Link>
       <small className="txt-grey">
         <i
-          onClick={() => login?updateLikedVideo(_id, userData._id, dispatch,setShowLoader):navigate("/login")}
+          onClick={() =>
+            login
+              ? updateLikedVideo(_id, userData._id, dispatch, setShowLoader)
+              : navigate("/login")
+          }
           className={
             videoExists(likedVideos, _id)
               ? "fas fa-thumbs-up primaryBg-txt"
@@ -43,7 +54,15 @@ export const HistoryCard = ({ _id }) => {
       </small>
       <button
         type="button"
-        onClick={() =>updateUserHistory(_id,userData._id, "REMOVE_FROM_HISTORY",dispatch, setShowLoader)}
+        onClick={() =>
+          updateUserHistory(
+            _id,
+            userData._id,
+            "REMOVE_FROM_HISTORY",
+            dispatch,
+            setShowLoader
+          )
+        }
         className="btn btn-secondary btn-dismiss"
       >
         <i className="fas fa-times"></i>
