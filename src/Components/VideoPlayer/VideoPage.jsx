@@ -36,6 +36,11 @@ export const VideoPage = () => {
     document.title = title;
   }, [title]);
 
+  const showChannelVideos = () => {
+    dispatch({type:"FILTER_CATEGORY", payload: author});
+    navigate("/");
+  }
+
   return showLoader ? (
     <div className="loader-container">
       <Loader type="Oval" color="#00BFFF" height={80} width={80} />
@@ -55,9 +60,9 @@ export const VideoPage = () => {
         {formatDate(date)}
       </p>
       <div className="author-container">
-        <img className="author-dp" src={image} alt="author" />
+        <img className="author-dp" src={image} alt="author" onClick={showChannelVideos}/>
         <div className="txt-desc">
-          <h4>{author}</h4>
+          <h4 className="author-name" onClick={showChannelVideos}>{author}</h4>
           <small>{formatNumber(subscribers)} subscribers</small>
         </div>
         <span className="txt-grey">
