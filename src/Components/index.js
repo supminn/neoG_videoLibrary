@@ -1,5 +1,6 @@
 export { Navigation } from "./Navigation/Navigation";
 export { Toast } from "./Toast/Toast";
+export { Footer } from "./Footer/Footer";
 
 export { VideoList } from "./Video/VideoList";
 export { VideoCard } from "./Video/VideoCard";

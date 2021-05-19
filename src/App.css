@@ -7,6 +7,11 @@
 @import url("./Components/Video/videoList.css");
 @import url("./Components/History/history.css");
 @import url("./Components/Authentication/authentication.css");
+@import url("./Components/Footer/footer.css");
+
+.body-container{
+  min-height: 77vh;
+}
 
 .img-svg {
   padding: 0 1rem;

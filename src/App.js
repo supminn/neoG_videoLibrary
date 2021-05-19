@@ -11,6 +11,7 @@ import {
   Login,
   Signup,
   VideoPage,
+  Footer,
 } from "./Components";
 import { useAuthContext, useDataContext } from "./Context";
 import { Routes, Route } from "react-router-dom";
@@ -49,6 +50,7 @@ function App() {
     <div className="App">
       <div className="toastmsg-container">{toastMsg && <Toast />}</div>
       <Navigation />
+      <section className="body-container">
       <Routes>
         <Route path="/" element={<VideoList />} />
         <Route path="/:videoId" element={<VideoPage />} />
@@ -59,6 +61,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+      </section>
+      <Footer/>
     </div>
   );
 }
