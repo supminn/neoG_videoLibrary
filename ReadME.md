@@ -12,7 +12,7 @@ This video library application would have the following features. It is being bu
     * Filter based on channel/publisher
 
 2. Playlist functionality
-    * Add video to playlist
+    * Add video to the playlist
     * Remove video from playlist
     * Move video from one playlist to another
     * Create custom playlist
@@ -25,7 +25,7 @@ This video library application would have the following features. It is being bu
     * Move from liked videos to playlist
 
 4. Beautifying with styleSUP
-    * Import the css library on .css file
+    * Import the CSS library on .css file
     * Add respective classes
     * Change theme using ThemeProvider (upcoming)
 

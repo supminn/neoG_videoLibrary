@@ -34,6 +34,7 @@ export const VideoPage = () => {
 
   useEffect(() => {
     document.title = title;
+    window.scroll(0,0);
   }, [title]);
 
   const showChannelVideos = () => {
