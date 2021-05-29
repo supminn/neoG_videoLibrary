@@ -1,4 +1,4 @@
-import { videoExists } from "../Utils";
+import { videoExists } from "../Utils/arrayOperations";
 
 export const dataReducer = (state, { type, payload }) => {
   switch (type) {

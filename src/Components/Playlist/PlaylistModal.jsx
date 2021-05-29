@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { videoExists } from "../../Utils";
+import { videoExists } from "../../Utils/arrayOperations";
 import { useAuthContext, useDataContext } from "../../Context";
-import { createUserPlaylist, updateUserPlaylist } from "../../Utils/serverRequest";
+import { createUserPlaylist, updateUserPlaylist } from "../../services/";
 
 export const PlaylistModal = ({ _id, setShowModal }) => {
   const {
@@ -11,18 +11,12 @@ export const PlaylistModal = ({ _id, setShowModal }) => {
 
   const [listName, setListName] = useState("");
 
-  const { userData, setShowLoader } = useAuthContext();
+  const { setShowLoader } = useAuthContext();
 
   const createPlaylist = async (event) => {
     if (event.key === "Enter") {
-      await createUserPlaylist(
-        userData._id,
-        listName,
-        _id,
-        dispatch,
-        setShowLoader,
-        setListName
-      );
+      await createUserPlaylist(listName, _id, dispatch, setShowLoader);
+      setListName("");
     }
   };
 
@@ -38,13 +32,7 @@ export const PlaylistModal = ({ _id, setShowModal }) => {
                 <input
                   type="checkbox"
                   onChange={() =>
-                    updateUserPlaylist(
-                      userData._id,
-                      listId,
-                      _id,
-                      dispatch,
-                      setShowLoader
-                    )
+                    updateUserPlaylist(listId, _id, dispatch, setShowLoader)
                   }
                   checked={videoExists(videos, _id)}
                 />{" "}
@@ -64,14 +52,10 @@ export const PlaylistModal = ({ _id, setShowModal }) => {
           />
           <span
             className="txt-icon"
-            onClick={() => createUserPlaylist(
-              userData._id,
-              listName,
-              _id,
-              dispatch,
-              setShowLoader,
-              setListName
-            )}
+            onClick={() => {
+              createUserPlaylist(listName, _id, dispatch, setShowLoader);
+              setListName("");
+            }}
           >
             <i className="fas fa-lg fa-plus-circle"></i>
           </span>

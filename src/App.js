@@ -20,49 +20,54 @@ import {
   getVideoList,
   getLikedVideos,
   getUserPlaylist,
-} from "./Utils/serverRequest";
+  getUserHistory,
+} from "./services/";
+import axios from "axios";
 
 function App() {
   const {
     state: { toastMsg },
     dispatch,
   } = useDataContext();
+  const { login, setShowLoader } = useAuthContext();
 
-  const { login, userData, setShowLoader } = useAuthContext();
+  useEffect(() => {
+    if (login) {
+      axios.defaults.headers.common["Authorization"] = login.token;
+    } else {
+      delete axios.defaults.headers.common["Authorization"];
+    }
+  }, [login]);
 
   useEffect(() => {
     getVideoList(dispatch, setShowLoader);
   }, []);
 
   useEffect(() => {
-    if (login && userData._id) {
-      getLikedVideos(userData._id, dispatch, setShowLoader);
+    if (login) {
+      getUserHistory(dispatch, setShowLoader);
+      getLikedVideos(dispatch, setShowLoader);
+      getUserPlaylist(dispatch, setShowLoader);
     }
-  }, [login, userData]);
-
-  useEffect(() => {
-    if (login && userData._id) {
-      getUserPlaylist(userData._id, dispatch, setShowLoader);
-    }
-  }, [login, userData]);
+  }, [login]);
 
   return (
     <div className="App">
       <div className="toastmsg-container">{toastMsg && <Toast />}</div>
       <Navigation />
       <section className="body-container">
-      <Routes>
-        <Route path="/" element={<VideoList />} />
-        <Route path="/:videoId" element={<VideoPage />} />
-        <PrivateRoute path="/liked-videos" element={<LikedVideos />} />
-        <PrivateRoute path="/playlist" element={<Playlist />} />
-        <PrivateRoute path="/history" element={<History />} />
-        <PrivateRoute path="/user-profile" element={<UserProfile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<VideoList />} />
+          <Route path="/:videoId" element={<VideoPage />} />
+          <PrivateRoute path="/liked-videos" element={<LikedVideos />} />
+          <PrivateRoute path="/playlist" element={<Playlist />} />
+          <PrivateRoute path="/history" element={<History />} />
+          <PrivateRoute path="/user-profile" element={<UserProfile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useAuthContext, useDataContext } from "../../Context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
-import { imageURL, updateLikedVideo } from "../../Utils";
-import { updateUserHistory } from "../../Utils/serverRequest";
+import { imageURL } from "../../Utils/arrayOperations";
+import { updateUserHistory, updateLikedVideo } from "../../services";
 
 export const LikedVideoCard = ({ _id }) => {
   const {
     state: { videoList },
     dispatch,
   } = useDataContext();
-  const {userData, setShowLoader} = useAuthContext();
-  
+  const { setShowLoader } = useAuthContext();
+
   const { vid, title, author, image } = videoList.find(
     (video) => video._id === _id
   );
@@ -20,7 +20,9 @@ export const LikedVideoCard = ({ _id }) => {
       <Link
         className="no-line"
         to={`/${_id}`}
-        onClick={() => updateUserHistory(_id,userData._id, "ADD_TO_HISTORY",dispatch, setShowLoader)}
+        onClick={() =>
+          updateUserHistory(_id, "ADD_TO_HISTORY", dispatch, setShowLoader)
+        }
       >
         <img className="card-img" alt="video-still" src={imageURL(vid)} />
         <div className="flex-container">
@@ -34,7 +36,7 @@ export const LikedVideoCard = ({ _id }) => {
       </small>
       <button
         type="button"
-        onClick={() => updateLikedVideo(_id, userData._id, dispatch, setShowLoader)}
+        onClick={() => updateLikedVideo(_id, dispatch, setShowLoader)}
         className="btn btn-secondary btn-dismiss"
       >
         <i className="fas fa-times"></i>

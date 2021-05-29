@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import { useAuthContext, useDataContext } from "../../Context";
-import { formatNumber, imageURL } from "../../Utils";
-import {
-  updateUserHistory,
-  updateUserPlaylist,
-} from "../../Utils/serverRequest";
+import { formatNumber, imageURL } from "../../Utils/arrayOperations";
+import { updateUserHistory, updateUserPlaylist } from "../../services";
 
 export const PlaylistCard = ({ _id, listId }) => {
   const {
     state: { videoList },
     dispatch,
   } = useDataContext();
-  const { userData, setShowLoader } = useAuthContext();
+  const { setShowLoader } = useAuthContext();
 
   const { vid, title, author, image, views } = videoList.find(
     (video) => video._id === _id
@@ -23,13 +20,7 @@ export const PlaylistCard = ({ _id, listId }) => {
         className="no-line"
         to={`/${_id}`}
         onClick={() =>
-          updateUserHistory(
-            _id,
-            userData._id,
-            "ADD_TO_HISTORY",
-            dispatch,
-            setShowLoader
-          )
+          updateUserHistory(_id, "ADD_TO_HISTORY", dispatch, setShowLoader)
         }
       >
         <img
@@ -48,9 +39,7 @@ export const PlaylistCard = ({ _id, listId }) => {
       </Link>
       <button
         type="button"
-        onClick={() =>
-          updateUserPlaylist(userData._id, listId, _id, dispatch, setShowLoader)
-        }
+        onClick={() => updateUserPlaylist(listId, _id, dispatch, setShowLoader)}
         className="btn btn-secondary btn-dismiss"
       >
         <i className="fas fa-times"></i>

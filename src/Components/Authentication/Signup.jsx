@@ -11,7 +11,8 @@ export const Signup = () => {
     userState: { name, username, password, email },
     userDispatch,
     registerUser,
-    userData,showLoader, setShowLoader
+    showLoader,
+    setShowLoader,
   } = useAuthContext();
 
   useEffect(() => {
@@ -105,14 +106,16 @@ export const Signup = () => {
       {showMsg && (
         <div className="div-container">
           <p className="txt-desc primaryBg-txt">
-            Hi <b className="secondary-txt">{userData.name}</b>, thank you for
-            signing up with <b>SupVision</b>.
+            Thank you for signing up with <b>SupVision</b>.
           </p>
           <p className="txt-desc primaryBg-txt">
-            You are now eligible to <em>like videos</em> and add videos to <em>playlist</em>.
+            You are now eligible to <em>like videos</em> and add videos to{" "}
+            <em>playlist</em>.
           </p>
-          <NavLink to="/">
-            <button className="btn btn-primary">Start watching!</button>
+          <NavLink to="/login">
+            <button className="btn btn-primary">
+              Login to continue watching!
+            </button>
           </NavLink>
         </div>
       )}

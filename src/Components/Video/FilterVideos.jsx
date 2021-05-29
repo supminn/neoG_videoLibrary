@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDataContext } from "../../Context";
-import { distinct } from "../../Utils";
+import { distinct } from "../../Utils/arrayOperations";
 
 export const FilterVideos = () => {
   const [searchTxt, setSearchTxt] = useState("");

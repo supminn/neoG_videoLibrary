@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../../Context";
 
 export const UserProfile = () => {
-  const { logOutUser, userData } = useAuthContext();
+  const { logOutUser, login } = useAuthContext();
 
   useEffect(() => {
     document.title = "SupVision | User Profile";
@@ -17,7 +17,7 @@ export const UserProfile = () => {
       <div className="div-container">
         <i className="fas fa-5x fa-user-circle primaryBg-txt"></i>
         <h3 className="txt-header-3">
-          Welcome <span>{userData.name}</span>
+          Welcome <span>{login.user}</span>
         </h3>
         <div className="user-nav-container">
           <Link to="/" className="no-line fas fa-lg fa-video secondary-txt">
