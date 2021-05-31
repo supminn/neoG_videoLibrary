@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import ReactPlayer from "react-player";
-import { useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useAuthContext, useDataContext } from "../../Context";
 import { AddToPlaylist } from "../Playlist/AddToPlaylist";
 import {
@@ -15,14 +15,16 @@ import { updateLikedVideo } from "../../services";
 export const VideoPage = () => {
   const { videoId } = useParams();
   const {
-    state: { videoList, likedVideos },
+    state: { likedVideos },
     dispatch,
   } = useDataContext();
   const { login, showLoader, setShowLoader } = useAuthContext();
   const navigate = useNavigate();
 
+  const {state:{videoDetails}} = useLocation();
+
   const { vid, title, author, image, views, date, subscribers, description } =
-    videoList.find((video) => video._id === videoId);
+    videoDetails;
 
   useEffect(() => {
     document.title = title;

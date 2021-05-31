@@ -10,18 +10,20 @@ export const VideoCard = ({ _id }) => {
     state: { videoList, likedVideos },
     dispatch,
   } = useDataContext();
-  const { login, userData, setShowLoader } = useAuthContext();
+  const { login, setShowLoader } = useAuthContext();
   const navigate = useNavigate();
 
-  const { vid, title, author, image } = videoList.find(
+  const videoDetails = videoList.find(
     (video) => video._id === _id
   );
+  const { vid, title, author, image } = videoDetails
 
   return (
     <div className="card card-shadow">
       <Link
         className="no-line"
         to={`/${_id}`}
+        state={{videoDetails}}
         onClick={() =>
           login
             ? updateUserHistory(_id, "ADD_TO_HISTORY", dispatch, setShowLoader)

@@ -39,4 +39,3 @@ This video library application would have the following features. It is being bu
 ### Future Enhancements
 * Take personal notes from video - capture video time duration
 * Home page and video listing page design
-* Refresh on video page - fix dependency
