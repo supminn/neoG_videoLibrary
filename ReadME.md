@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/github/supminn/neoG_videoLibrary.svg)](https://wakatime.com/badge/github/supminn/neoG_videoLibrary)
+
 # Supminn's video library application
 
 This video library application would have the following features. It is being built on ReactJS. The main hooks being used here are useContext and useReducer.
