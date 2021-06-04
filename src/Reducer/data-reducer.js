@@ -14,6 +14,9 @@ export const dataReducer = (state, { type, payload }) => {
     case "SET_PLAYLIST":
       return { ...state, playlist: payload };
 
+    case "SET_VIDEO_NOTES":
+      return { ...state, notes: payload };
+
     case "TOGGLE_LIKE":
       return {
         ...state,
@@ -108,6 +111,24 @@ export const dataReducer = (state, { type, payload }) => {
     case "SHOW_TOAST":
       return { ...state, toastMsg: payload };
 
+    case "ADD_NOTE":
+      return { ...state, notes: state.notes.concat({ ...payload }), toastMsg:"Note added successfully" };
+
+    case "UPDATE_NOTE":
+      return {
+        ...state,
+        notes: state.notes.map((note) =>
+          note._id === payload._id ? payload : note
+        ),
+        toastMsg:"Note updated successfully"
+      };
+
+    case "DELETE_NOTE":
+      return {
+        ...state,
+        notes: state.notes.filter((note) => note._id !== payload._id),
+        toastMsg:"Note deleted successfully"
+      };
     default:
       return state;
   }

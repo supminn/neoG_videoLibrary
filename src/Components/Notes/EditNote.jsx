@@ -1,7 +1,10 @@
 import { useReducer } from "react";
+import { useDataContext } from "../../Context";
+import { addVideoNote, updateVideoNote } from "../../services";
 
 const initialNoteState = {
   _id: "",
+  videoId: "",
   title: "",
   description: "",
 };
@@ -21,11 +24,12 @@ const noteReducer = (state, { type, payload }) => {
 };
 
 export const EditNote = ({
+  videoId = "",
   note = initialNoteState,
   setEditMode,
-  setNotes,
 }) => {
   const [noteState, noteDispatch] = useReducer(noteReducer, note);
+  const { dispatch } = useDataContext();
 
   const cancelChanges = () => {
     if (setEditMode) {
@@ -35,17 +39,15 @@ export const EditNote = ({
     }
   };
 
-  const updateNotes = () => {
-      if(noteState._id){
-          setNotes(notes => notes.map(note => note._id === noteState._id?{...noteState}:note));
-          setEditMode(false);
-      }
-      else{
-          noteDispatch({type:"SET_ID", payload:"3"});
-          setNotes(notes => notes.concat(noteState));
-          noteDispatch({type:"CLEAR_INPUT_FIELDS"});
-      }
-  }
+  const updateNotes = async () => {
+    if (noteState._id) {
+      await updateVideoNote(videoId, noteState, dispatch);
+      setEditMode(false);
+    } else {
+      await addVideoNote(videoId, noteState, dispatch);
+      noteDispatch({ type: "CLEAR_INPUT_FIELDS" });
+    }
+  };
   return (
     <div className="edit-container">
       <input
@@ -65,7 +67,10 @@ export const EditNote = ({
         }
       ></textarea>
       <div className="note-icons">
-        <i onClick={updateNotes} className="fas fa-lg primaryBg-txt fa-check"></i>
+        <i
+          onClick={updateNotes}
+          className="fas fa-lg primaryBg-txt fa-check"
+        ></i>
         <i
           onClick={cancelChanges}
           className="fas fa-lg secondary-txt fa-times"

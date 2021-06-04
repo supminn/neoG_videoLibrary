@@ -1,28 +1,29 @@
-import { useState } from "react";
+import { useAuthContext, useDataContext } from "../../Context";
 import { EditNote } from "./EditNote";
 import { Note } from "./Note";
+import noteImg from "../../images/notes.svg";
 
 export const NotesContainer = ({_id}) => {
-    
-    const [notes, setNotes] = useState([{
-        _id:"1",
-        title:"Note 1",
-        description:"This is where i need you're help."
-    },
-    {
-        _id:"2",
-        title:"Note 2",
-        description:"Focus on 2:35. Here, what Brandon is trying to explain is that we should all focus on our posture. Focus on 2:35. Here, what Brandon is trying to explain is that we should all focus on our posture. "
-    }]);
+  const {
+    state: { notes },
+  } = useDataContext();
 
-    return(
-        <div className="notes-container">
-        <h3 className="primaryBg-txt">My Notes</h3>
-        <p>{_id}</p>
-        <EditNote setNotes={setNotes}/>
-        {notes.map(note => (
-            <Note key={note._id} note={note} setNotes={setNotes}/>
-        ))}
-        </div>
-    )
-}
+  const { login } = useAuthContext();
+
+  return login ? (
+    <div className="notes-container">
+      <h3 className="primaryBg-txt">My Notes</h3>
+      <EditNote videoId={_id} />
+      {notes.map((note) => (
+        <Note key={note._id} note={note} videoId={_id}/>
+      ))}
+    </div>
+  ) : (
+    <div className="notes-container">
+      <h3 className="primaryBg-txt">
+        Login to add <span className="secondary-txt">personal notes</span>!
+      </h3>
+      <img className="img-svg" src={noteImg} alt="notes" />
+    </div>
+  );
+};

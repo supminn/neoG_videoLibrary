@@ -9,6 +9,7 @@ const initialArg = {
     likedVideos:[],
     history:[],
     playlist:[],
+    notes:[],
     toastMsg: "",
     searchValue:"",
     categoryFilter:"All videos"
