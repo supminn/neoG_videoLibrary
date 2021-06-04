@@ -56,12 +56,6 @@ export const dataReducer = (state, { type, payload }) => {
         return { ...state };
       }
 
-    case "DELETE_PLAYLIST":
-      return {
-        ...state,
-        playlist: state.playlist.filter((list) => list._id !== payload),
-      };
-
     case "RENAME_PLAYLIST":
       return {
         ...state,
@@ -70,6 +64,12 @@ export const dataReducer = (state, { type, payload }) => {
             ? { ...list, name: payload.listName }
             : list
         ),
+      };
+
+    case "DELETE_PLAYLIST":
+      return {
+        ...state,
+        playlist: state.playlist.filter((list) => list._id !== payload),
       };
 
     case "ADD_TO_HISTORY":
@@ -81,12 +81,14 @@ export const dataReducer = (state, { type, payload }) => {
               .concat(payload)
           : state.history.concat(payload),
       };
+
     case "REMOVE_FROM_HISTORY":
       return {
         ...state,
         toastMsg: "Removed from history",
         history: state.history.filter((videoId) => videoId !== payload),
       };
+
     case "CLEAR_HISTORY":
       return {
         ...state,
@@ -96,6 +98,7 @@ export const dataReducer = (state, { type, payload }) => {
 
     case "SEARCH_VIDEO":
       return { ...state, searchValue: payload.toLowerCase() };
+
     case "CLEAR_FILTER":
       return {
         ...state,

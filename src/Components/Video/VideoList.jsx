@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useAuthContext, useDataContext } from "../../Context";
-import { FilterVideos, getFilteredVideos } from "./FilterVideos";
+import { FilterVideos } from "./FilterVideos";
 import { VideoCard } from "./VideoCard";
 import videolist from "../../images/videolist.svg";
 import Loader from "react-loader-spinner";
+import { getFilteredVideos } from "../../Utils/filterVideoList";
 
 export const VideoList = () => {
   const {
