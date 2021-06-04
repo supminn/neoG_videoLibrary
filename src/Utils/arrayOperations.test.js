@@ -96,4 +96,15 @@ describe("testing array utility operations", () => {
     //Arrange
     expect(formattedNumber).toBe("2568.8k");
   });
+
+  test("should return a number as is which is less than 1000", () => {
+    //Arrange
+    const unformattedNumber = 250;
+
+    //Act
+    const formattedNumber = formatNumber(unformattedNumber);
+
+    //Arrange
+    expect(formattedNumber).toBe(250);
+  });
 });
