@@ -8,6 +8,7 @@
 @import url("./Components/History/history.css");
 @import url("./Components/Authentication/authentication.css");
 @import url("./Components/Footer/footer.css");
+@import url("./Components/Notes/notesContainer.css");
 
 .body-container{
   min-height: 77vh;

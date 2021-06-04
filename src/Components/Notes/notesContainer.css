@@ -1,0 +1,93 @@
+.notes-container {
+    margin: 0.7rem;
+}
+
+.note-container,
+.edit-container {
+    border: 1px solid var(--theme500);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.note-desc {
+    font-size: 0.9em;
+    line-height: 1.5;
+    padding: 0.2rem;
+    max-height: 7rem;
+    overflow-y: scroll;
+}
+
+.note-icons {
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    top: 7%;
+}
+
+.note-icons>.fas {
+    padding: 0 0.2rem;
+}
+
+.txt-title {
+    font-size: 1.1em;
+    margin: 0.2rem;
+    padding: 0.3rem;
+    width: 80%;
+}
+
+.txt-description {
+    font-size: 0.9em;
+    width: 100%;
+    line-height: 1.5;
+    height: 7rem;
+    overflow-y: scroll;
+}
+
+/* width */
+.note-desc::-webkit-scrollbar,
+.txt-description::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.note-desc::-webkit-scrollbar-track,
+.txt-description::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--theme300);
+    border-radius: 10px;
+}
+
+/* Handle */
+.note-desc::-webkit-scrollbar-thumb,
+.txt-description::-webkit-scrollbar-thumb {
+    background: var(--theme700);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.note-desc::-webkit-scrollbar-thumb:hover,
+.txt-description::-webkit-scrollbar-thumb:hover {
+    background: var(--theme600);
+}
+
+@media screen and (min-width: 576px) {
+    .txt-title {
+        width: 88%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .notes-container {
+        min-width: 30vw;
+        width: 30vw;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .notes-container {
+        min-width: 35vw;
+        width: 35vw;
+    }
+}
