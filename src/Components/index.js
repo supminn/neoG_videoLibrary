@@ -23,3 +23,7 @@ export { PrivateRoute } from "./Private/PrivateRoute";
 export { UserProfile } from "./Authentication/UserProfile";
 export { Login } from "./Authentication/Login";
 export { Signup } from "./Authentication/Signup";
+
+export { NotesContainer } from "./Notes/NotesContainer";
+export { Note } from "./Notes/Note";
+export { EditNote } from "./Notes/EditNote";
