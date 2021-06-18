@@ -22,14 +22,30 @@ export const Signup = () => {
   const signupHandler = async (e) => {
     setShowLoader(true);
     e.preventDefault();
-    const res = await registerUser(name, username, password, email);
-    setShowLoader(false);
-    if (!res.success) {
-      setErrorMsg(res.message);
+    if (!isPasswordValid()) {
+      setErrorMsg(
+        "Password must contain at least 8 characters, at least 1 number and both lower and uppercase letters."
+      );
     } else {
-      setShowMsg(true);
+      const res = await registerUser(name, username, password, email);
+      if (!res.success) {
+        setErrorMsg(res.message);
+      } else {
+        setShowMsg(true);
+      }
     }
+    setShowLoader(false);
   };
+
+  const isPasswordValid = () => {
+    if (
+      password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/) ==
+      null
+    )
+      return false;
+    else return true;
+  };
+
   return (
     <>
       <h2 className="txt-header-2">
