@@ -65,7 +65,7 @@ https://user-images.githubusercontent.com/30731236/122634766-e4de2880-d0fd-11eb-
 
 **Password:** Testing1
 
-# Instructions on using SupMart locally.
+# Instructions on using SupVision locally.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
