@@ -16,7 +16,7 @@ export const VideoCard = ({ _id }) => {
   const videoDetails = videoList.find(
     (video) => video._id === _id
   );
-  const { vid, title, author, image } = videoDetails
+  const { vid, title, author, image } = videoDetails;
 
   return (
     <div className="card card-shadow">

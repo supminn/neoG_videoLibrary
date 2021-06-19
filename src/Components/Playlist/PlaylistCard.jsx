@@ -10,15 +10,18 @@ export const PlaylistCard = ({ _id, listId }) => {
   } = useDataContext();
   const { setShowLoader } = useAuthContext();
 
-  const { vid, title, author, image, views } = videoList.find(
+  const videoDetails = videoList.find(
     (video) => video._id === _id
   );
+
+  const { vid, title, author, image, views } = videoDetails;
 
   return (
     <div className="card card-shadow playlist-card">
       <Link
         className="no-line"
         to={`/${_id}`}
+        state={{videoDetails}}
         onClick={() =>
           updateUserHistory(_id, "ADD_TO_HISTORY", dispatch, setShowLoader)
         }

@@ -11,15 +11,18 @@ export const HistoryCard = ({ _id }) => {
   } = useDataContext();
   const { login, setShowLoader } = useAuthContext();
   const navigate = useNavigate();
-  const { vid, title, author, image } = videoList.find(
+  const videoDetails = videoList.find(
     (video) => video._id === _id
   );
+
+  const { vid, title, author, image } = videoDetails;
 
   return (
     <div className="card card-shadow">
       <Link
         className="no-line"
         to={`/${_id}`}
+        state={{videoDetails}}
         onClick={() =>
           updateUserHistory(_id, "ADD_TO_HISTORY", dispatch, setShowLoader)
         }
