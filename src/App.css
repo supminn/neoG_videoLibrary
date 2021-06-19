@@ -1,0 +1,34 @@
+@import url("./Components/Navigation/navigation.css");
+@import url("./Components/Toast/toast.css");
+@import url("./Components/Video/videoCard.css");
+@import url("./Components/Playlist/playlist.css");
+@import url("./Components/VideoPlayer/videoPage.css");
+@import url("./Components/Video/filters.css");
+@import url("./Components/Video/videoList.css");
+@import url("./Components/History/history.css");
+@import url("./Components/Authentication/authentication.css");
+@import url("./Components/Footer/footer.css");
+@import url("./Components/Notes/notesContainer.css");
+
+.body-container{
+  min-height: 77vh;
+}
+
+.img-svg {
+  padding: 0 1rem;
+}
+
+.toastmsg-container {
+  min-height: 3rem;
+}
+
+@media screen and (min-width: 576px) {
+  .img-svg {
+    width: 50%;
+    margin: auto;
+  }
+}
+
+.App {
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+.flex-container {
+    flex-wrap: nowrap;
+}
+
+.flex-container, .txt-title{
+    padding: 0.1rem;
+}
+
+.txt-title{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+} 
+
+.card {
+    height: 24rem;
+}
+
+.card-shadow .no-line:hover {
+    cursor: pointer;
+}
+
+.txt-grey {
+    color: var(--theme400);
+}
+
+.txt-grey .btn{
+    margin: unset;
+}
+
+@media screen and (min-width: 576px) {
+    .card{
+        max-height: 23rem;
+    }
+    .card-img{
+        min-width: 14rem;
+        max-width: 20rem;
+    }
+}
+
+

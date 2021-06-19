@@ -1,0 +1,36 @@
+.videolist-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    margin: 1rem;
+}
+
+.btn-fab{
+    position: fixed;
+    bottom: 0;
+    right:0;
+}
+
+.loader-container{
+    margin-top: 10rem;
+}
+
+@media screen and (min-width: 576px) {
+    .videolist-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .videolist-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .videolist-container{
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 2rem;
+    }
+}
