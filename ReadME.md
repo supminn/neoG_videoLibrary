@@ -11,6 +11,7 @@ SupVision is a video library application developed for jump rope enthusiast. It 
 - React Router v6 (beta) for routes
 - Express & Node for API [Repo Link](https://github.com/supminn/neoG_Backend/)
 - MongoDB using mongoose for data storage
+
 ## Functionalities
 
 1. Video Listing Page
@@ -56,7 +57,8 @@ SupVision is a video library application developed for jump rope enthusiast. It 
 
 [Deployed link](https://supvision.netlify.app/)
 
---video
+https://user-images.githubusercontent.com/30731236/122634766-e4de2880-d0fd-11eb-8627-d766deb2a98c.mp4
+
 ## Test user credentials
 **Username:** Tester
 
