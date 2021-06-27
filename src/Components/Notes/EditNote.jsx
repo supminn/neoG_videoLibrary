@@ -61,7 +61,7 @@ export const EditNote = ({
       <textarea
         className="txt-input txt-description"
         value={noteState.description}
-        placeholder="Description"
+        placeholder="Description (supports markdown)"
         onChange={(event) =>
           noteDispatch({ type: "SET_DESCRIPTION", payload: event.target.value })
         }

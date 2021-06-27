@@ -3,6 +3,7 @@ import { useDataContext } from "../../Context";
 import { deleteVideoNote } from "../../services";
 import { EditNote } from "./EditNote";
 import { formatDate } from "../../Utils/arrayOperations";
+import ReactMarkdown from "react-markdown";
 
 export const Note = ({ note, videoId }) => {
   const [editMode, setEditMode] = useState(false);
@@ -13,7 +14,7 @@ export const Note = ({ note, videoId }) => {
   ) : (
     <div className="note-container">
       <h3 className="primaryBg-txt">{note.title}</h3>
-      <p className="txt-desc note-desc">{note.description}</p>
+      <ReactMarkdown className="txt-desc note-desc">{note.description}</ReactMarkdown>
       <small><i className="far fa-clock"></i>{" "}{formatDate(note.updatedAt)}</small>
       <div className="note-icons">
         <i
