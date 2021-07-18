@@ -20,10 +20,6 @@ export const UserProfile = () => {
           Welcome <span>{login.user}</span>
         </h3>
         <div className="user-nav-container">
-          <Link to="/" className="no-line fas fa-lg fa-video secondary-txt">
-            <span className="txt-small primaryBg-txt"> Video List</span>
-          </Link>
-
           <Link
             to="/history"
             className="no-line fas fa-lg fa-history secondary-txt"

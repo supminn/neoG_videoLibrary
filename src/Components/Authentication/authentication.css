@@ -41,6 +41,10 @@
     font-size: 0.8em;
 }
 
+.btn-link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 @media screen and (min-width: 576px) {
     .div-container {
         width: 70%;
