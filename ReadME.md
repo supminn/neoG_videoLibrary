@@ -5,6 +5,7 @@
 SupVision is a video library application developed for jump rope enthusiast. It provides videos on jump rope tricks and tutorials.
 
 ## Techonology Stack
+
 - React - Reducer + Context
 - React Player for video playback
 - Styling using personal CSS component library [StyleSUP](https://stylesup.netlify.app/)
@@ -16,6 +17,7 @@ SupVision is a video library application developed for jump rope enthusiast. It 
 ## Functionalities
 
 1. Video Listing Page
+
    - List of videos
    - Search for videos
    - Add to playlist
@@ -23,6 +25,7 @@ SupVision is a video library application developed for jump rope enthusiast. It 
    - Filter based on channel
 
 2. Playlist functionality
+
    - Add video to the playlist
    - Remove video from playlist
    - Move video from one playlist to another
@@ -31,21 +34,24 @@ SupVision is a video library application developed for jump rope enthusiast. It 
    - Delete custom playlist
 
 3. Liked videos functionality
+
    - Add video to liked videos
    - Remove video from liked videos
    - Move from liked videos to playlist
 
 4. User Watch History
+
    - Tracks all the videos while a user signed in
    - Remove individual video from history
    - Clear complete watch history
 
 5. Video Page
+
    - Video player along with video details
    - Author information and subsequent filtering
    - Feature to add/update personal notes for registered users.
 
-7. Database and API - MongoDB through Mongoose and ExpressJS.
+6. Database and API - MongoDB through Mongoose and ExpressJS.
    - Video list
    - User Authentication using JWT
    - User's watch history
@@ -53,7 +59,10 @@ SupVision is a video library application developed for jump rope enthusiast. It 
    - Watch later and custom playlists
 
 ### Enhancements
+
 - Home page designing
+- Live search - filter search results as the user types.
+
 ## Live link and demo
 
 [Deployed link](https://supvision.netlify.app/)
@@ -61,6 +70,7 @@ SupVision is a video library application developed for jump rope enthusiast. It 
 https://user-images.githubusercontent.com/30731236/122634766-e4de2880-d0fd-11eb-8627-d766deb2a98c.mp4
 
 ## Test user credentials
+
 **Username:** Tester
 
 **Password:** Testing1
@@ -90,6 +100,7 @@ cd my-app-name
 
 npm install
 ```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -156,4 +167,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
